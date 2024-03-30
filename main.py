@@ -1,23 +1,22 @@
-import Make
+import make
 
-button1 = Make.Button( 20 )
-button2 = Make.Button( 21 )
+button1 = make.button( 20 )
+button2 = make.button( 21 )
 
-dc1 = Make.DC(  8,  9 )
-dc2 = Make.DC( 10, 11 )
+motor1 = make.motor(  8,  9 )
+motor2 = make.motor( 10, 11 )
 
-servo = Make.Servo( 15 )
+# servo1 = make.servo( 15 )
 
 while True:
-
     if button1.is_pressed():
-        servo.spin( 0 )
-        dc1.spin(  0.5 )
-        dc2.spin( -0.5 )
+        # servo1.spin( 0 )
+        motor1.spin(  0.5 )
+        motor2.spin( -0.5 )
 
     if button2.is_pressed():
-        servo.spin( 180 )
-        dc1.spin( 0 )
-        dc2.spin( 0 )
+        # servo1.spin( 180 )
+        motor1.spin( 0 )
+        motor2.spin( 0 )
 
-    Make.Pause( 0.05 )
+    make.pause( 0.05 )

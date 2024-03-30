@@ -3,6 +3,7 @@ import digitalio
 import time
 import pwmio
 from adafruit_motor import servo, motor
+from typing import Callable
 
 """
 Carston Wiebe
@@ -31,33 +32,62 @@ dc_pin = {
     11: board.GP11,
 }
 
-class Button:
+class button:
     "An object representing a button"
+
     def __init__( self, pin: int ):
         self.io = digitalio.DigitalInOut( button_pin[pin] )
+
     def is_pressed( self ) -> bool:
         "Returns true if the button is pressed, false otherwise"
         return not self.io.value
 
-class Servo:
+class servo:
     "An object representing a servo"
+
     def __init__( self, pin: int ):
-        pwm     = pwmio.PWMOut( servo_pin[pin], duty_cycle = D_CYCLE, frequency = FRQ )
+        pwm = pwmio.PWMOut(
+            servo_pin[pin],
+            duty_cycle = D_CYCLE,
+            frequency  = FRQ
+        )
         self.io = servo.Servo( pwm )
-    def spin( self, speed: float ):
+
+    def spin( self, speed: float ) -> None:
         "Spin the servo at the given speed"
         self.io.angle = speed
+        # TODO: Stop the servo
 
-class DC:
+class motor:
     "An object representing a DC motor"
+
     def __init__( self, pin1: int, pin2: int ):
         forward  = pwmio.PWMOut( dc_pin[pin1], frequency = FRQ )
         backward = pwmio.PWMOut( dc_pin[pin2], frequency = FRQ )
         self.io  = motor.DCMotor( forward, backward )
-    def spin( self, speed: float ):
-        "Spin the motor at the given speed"
-        self.io.throttle = speed
 
-def Pause( seconds: float ) -> None:
+    def spin( self, speed: float, seconds: float = None ) -> None:
+        """
+        Spin the motor at the given speed for the given time period; if no
+        period is given then it spins until stopped
+        """
+        self.io.throttle = speed
+        if seconds != None:
+            pause( seconds )
+            self.io.spin( 0 )
+
+def pause( seconds: float ) -> None:
     "Wait the given number of seconds before moving on"
     time.sleep( seconds )
+
+def loop(
+        code:      Callable[[], None],
+        condition: Callable[[], bool] = lambda : False
+    ) -> None:
+    """
+    Loops the given code indefinitely or until the given termination condition
+    is met
+    """
+    while not condition():
+        code()
+        pause( 0.05 )
