@@ -5,10 +5,10 @@ off_button = make.button( 2 )
 
 motor = make.motor( 1 )
 
-make.pause_until(on_button.is_pressed)
+make.pause_until( on_button.is_pressed )
 motor.spin( 50 )
 
-make.pause_until(off_button.is_pressed)
+make.pause_until( off_button.is_pressed )
 motor.spin( 0 )
 
 make.pause( 3 )
