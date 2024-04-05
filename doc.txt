@@ -1,0 +1,91 @@
+==[ MAKE ]==================================================
+|                                                          |
+|  AUTHOR  : Carston Wiebe                                 |
+|  UPDATED : 2024-04-05                                    |
+|  Created for the University of Nebraska-Lincoln's SPARK  |
+|  student orginization                                    |
+|                                                          |
+==[ DESCRIPTION ]===========================================
+|                                                          |
+|  Wrapper for CIRCUITPython (also written in Python) to   |
+|  be used on the MakerPI RP2040 in order to allow the     |
+|  simple creation of code by elementary and middle        |
+|  school students for educational purposes.               |
+|                                                          |
+==[ TABLE OF CONTENTS ]=====================================
+|                                                          |
+|  CONSTANTS.......LINE #                                  |
+|    CYCLE.............35                                  |
+|    FRQ...............39                                  |
+|    BUTTON_PIN........43                                  |
+|    SERVO_PIN.........47                                  |
+|    DC_PIN............51                                  |
+|  CLASSES                                                 |
+|    button............55                                  |
+|      is_pressed......59                                  |
+|    servo.............63                                  |
+|      spin............67                                  |
+|    motor.............71                                  |
+|      spin............75                                  |
+|  FUNCTIONS                                               |
+|    pause.............79                                  |
+|    pause_until.......83                                  |
+|    loop..............87                                  |
+|                                                          |
+==[ CONSTANTS :: CYCLE ]====================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CONSTANTS :: FRQ ]======================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CONSTANTS :: BUTTON_PIN ]===============================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CONSTANTS :: SERVO_PIN ]================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CONSTANTS :: DC_PIN ]===================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CLASSES :: button ]=====================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CLASSES :: button :: is_pressed ]=======================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CLASSES :: servo ]======================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CLASSES :: servo :: spin ]==============================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CLASSES :: motor ]======================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ CLASSES :: motor :: spin ]==============================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ FUNCTIONS :: pause ]====================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ FUNCTIONS :: pause_until ]==============================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ FUNCTIONS :: loop ]=====================================
+|                                                          |
+|                                                          |
+|                                                          |
+==[ END ]===================================================
