@@ -20,14 +20,14 @@ BUTTON_PIN = {
     2: board.GP21,
 }
 SERVO_PIN = {
-    1: board.GP12,
-    2: board.GP13,
-    3: board.GP14,
-    4: board.GP15,
+    3: board.GP12,
+    4: board.GP13,
+    5: board.GP14,
+    6: board.GP15,
 }
 DC_PIN = {
-    1: (board.GP8,  board.GP9 ),
-    2: (board.GP10, board.GP11),
+    7: (board.GP8,  board.GP9 ),
+    8: (board.GP10, board.GP11),
 }
 
 class button:
