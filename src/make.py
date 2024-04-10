@@ -12,6 +12,11 @@ carstonwiebe17@gmail.com
 CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 """
 
+testing = False
+
+dc_motors: list[motor] = []
+servos:    list[servo] = []
+
 CYCLE = 2 ** 15  # duty cycle
 FRQ   = 50       # frequency
 
@@ -19,16 +24,17 @@ BUTTON_PIN = {
     1: board.GP20,
     2: board.GP21,
 }
+DC_PIN = {
+    7: (board.GP8,  board.GP9 ),
+    8: (board.GP10, board.GP11),
+}
 SERVO_PIN = {
     3: board.GP12,
     4: board.GP13,
     5: board.GP14,
     6: board.GP15,
 }
-DC_PIN = {
-    7: (board.GP8,  board.GP9 ),
-    8: (board.GP10, board.GP11),
-}
+GROVE_PIN = {}
 
 class button:
     "An object representing a button"
@@ -44,7 +50,8 @@ class servo:
     "An object representing a servo"
 
     def __init__( self, pin: int ):
-        pwm = pwmio.PWMOut( SERVO_PIN[pin], duty_cycle = CYCLE, frequency = FRQ )
+        pwm = pwmio.PWMOut( SERVO_PIN[pin], duty_cycle = CYCLE,
+                            frequency = FRQ )
         self.io = servo.Servo( pwm )
 
     def spin( self, speed: float ) -> None:
@@ -80,7 +87,8 @@ def pause_until( condition: Callable[[], bool] ) -> None:
     while not condition():
         pause( 0.05 )
 
-def loop( code: Callable[[], None], condition: Callable[[], bool] = lambda : False ) -> None:
+def loop( code:      Callable[[], None],
+          condition: Callable[[], bool] = lambda : False ) -> None:
     """
     Loops the given code indefinitely or until the given termination condition
     is met

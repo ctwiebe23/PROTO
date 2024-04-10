@@ -14,34 +14,48 @@
 
 ==[ TABLE OF CONTENTS ]=====================================
 
-   CLASSES
-     button............
-       is_pressed......
-     motor.............
-       spin............
-     servo.............
-       spin............
-   CONSTANTS
-     BUTTON_PIN........
-     CYCLE.............
-     DC_PIN............
-     FRQ...............
-     GROVE_PIN.........
-     SERVO_PIN.........
-   FUNCTIONS
-     loop..............
-     pause.............
-     pause_until.......
-     stop_all..........
-   VARIABLES
-     dc_motors.........
-     servos............
+   CLASSES---------------
+     button............00
+       is_pressed......00
+     drivetrain........00
+       drive...........00
+       turn............00
+     eye...............00
+       get_distance....00
+     motor.............00
+       spin............00
+     servo.............00
+       spin............00
+   CONSTANTS-------------
+     BUTTON_PIN........00
+     CYCLE.............00
+     DC_PIN............00
+     FRQ...............00
+     GROVE_PIN.........00
+     SERVO_PIN.........00
+   FUNCTIONS-------------
+     loop..............00
+     pause.............00
+     pause_until.......00
+     stop_all..........00
+   VARIABLES-------------
+     dc_motors.........00
+     servos............00
+     testing...........00
 
 ==[ CLASSES :: button ]=====================================
 
 
 
 ==[ CLASSES :: button :: is_pressed ]=======================
+
+
+
+==[ CLASSES :: eye ]========================================
+
+
+
+==[ CLASSES :: eye :: get_distance ]========================
 
 
 
