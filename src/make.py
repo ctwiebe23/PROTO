@@ -56,9 +56,9 @@ class motor:
     "An object representing a DC motor"
 
     def __init__( self, pinset: int ):
-        forward    = pwmio.PWMOut( DC_PIN[pinset][0], frequency = FRQ )
-        backward   = pwmio.PWMOut( DC_PIN[pinset][1], frequency = FRQ )
-        self.io    = motor.DCMotor( forward, backward )
+        forward  = pwmio.PWMOut( DC_PIN[pinset][0], frequency = FRQ )
+        backward = pwmio.PWMOut( DC_PIN[pinset][1], frequency = FRQ )
+        self.io  = motor.DCMotor( forward, backward )
 
     def spin( self, speed: float, seconds: float = None ) -> None:
         """
