@@ -3,7 +3,8 @@
    AUTHOR(S) :
      Carston Wiebe (carstonwiebe17@gmail.com)
    UPDATED :
-     2024-04-10 : drivetrain & eye
+     2024-04-12 : DRY_RUN
+     2024-04-10 : PHILOSOPHY
      2024-04-06 : creation
    Created for the University of Nebraska-Lincoln's SPARK
    student organization
@@ -58,6 +59,7 @@
    * BUTTON_PIN........00
    * CYCLE.............00
    * DC_PIN............00
+     DRY_RUN...........00
    * FRQ...............00
    * GROVE_PIN.........00
    * SERVO_PIN.........00
@@ -67,9 +69,8 @@
      pause_until.......00
      stop_all..........00
    VARIABLES-------------
-     dc_motors.........00
-     servos............00
-   * testing...........00
+   * dc_motors.........00
+   * servos............00
 
    * Not for use by normal users
 

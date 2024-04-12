@@ -12,7 +12,7 @@ carstonwiebe17@gmail.com
 CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 """
 
-testing = False
+DRY_RUN = False
 
 dc_motors: list[motor] = []
 servos:    list[servo] = []
