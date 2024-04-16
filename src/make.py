@@ -12,8 +12,6 @@ carstonwiebe17@gmail.com
 CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 """
 
-DRY_RUN = False
-
 dc_motors: list[motor] = []
 servos:    list[servo] = []
 
@@ -34,7 +32,7 @@ SERVO_PIN = {
     5: board.GP14,
     6: board.GP15,
 }
-GROVE_PIN = {}
+GROVE_PIN = {}  # TODO
 
 class button:
     "An object representing a button"
