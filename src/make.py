@@ -2,7 +2,7 @@ import board
 import digitalio
 import time
 import pwmio
-import adafruit_motor
+from adafruit_motor import motor, servo
 
 """
 Carston Wiebe
@@ -10,9 +10,6 @@ carstonwiebe17@gmail.com
 
 CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 """
-
-motors: list[motor] = []
-servos: list[servo] = []
 
 CYCLE = 2 ** 15  # duty cycle
 FRQ   = 50       # frequency
@@ -31,13 +28,14 @@ SERVO_PIN = {
     5: board.GP14,
     6: board.GP15,
 }
-GROVE_PIN = {}  # TODO
 
 class button:
     "An object representing a button"
 
     def __init__( self, pin: int ):
-        self.io = digitalio.DigitalInOut( BUTTON_PIN[pin] )
+        self.io           = digitalio.DigitalInOut( BUTTON_PIN[pin] )
+        self.io.direction = digitalio.Direction.INPUT
+        self.io.pull      = digitalio.Pull.UP
 
     def is_pressed( self ) -> bool:
         "Returns true if the button is pressed, false otherwise"
@@ -47,7 +45,7 @@ class servo:
     "An object representing a servo"
 
     def __init__( self, pin: int ):
-        self.io = adafruit_motor.servo.Servo( pwmio.PWMOut(
+        self.io = servo.Servo( pwmio.PWMOut(
             SERVO_PIN[pin],
             duty_cycle = CYCLE,
             frequency  = FRQ
@@ -58,13 +56,13 @@ class servo:
         self.io.angle = speed
         # TODO: Stop the servo
 
-class motor:
+class dc:
     "An object representing a DC motor"
 
     def __init__( self, pinset: int ):
         forward  = pwmio.PWMOut( DC_PIN[pinset][0], frequency = FRQ )
         backward = pwmio.PWMOut( DC_PIN[pinset][1], frequency = FRQ )
-        self.io  = adafruit_motor.motor.DCMotor( forward, backward )
+        self.io  = motor.DCMotor( forward, backward )
 
     def spin( self, speed: float, seconds: float = None ) -> None:
         """
@@ -77,14 +75,14 @@ class motor:
             pause( seconds )
             self.io.spin( 0 )
 
-def pause( seconds: float ) -> None:
+def pause( seconds: float = 0.05 ) -> None:
     "Wait the given number of seconds before moving on"
     time.sleep( seconds )
 
 def pause_until( condition ) -> None:
     "Wait until the given condition is satisfied"
     while not condition():
-        pause( 0.05 )
+        pause()
 
 def loop( code, condition = lambda : False ) -> None:
     """
@@ -93,4 +91,4 @@ def loop( code, condition = lambda : False ) -> None:
     """
     while not condition():
         code()
-        pause( 0.05 )
+        pause()
