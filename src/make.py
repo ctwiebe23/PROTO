@@ -37,15 +37,15 @@ class button:
         self.io.direction = digitalio.Direction.INPUT
         self.io.pull      = digitalio.Pull.UP
 
-    def is_pressed( self ) -> bool:
+    def pressed( self ) -> bool:
         "Returns true if the button is pressed, false otherwise"
         return not self.io.value
 
-class servo:
+class smallmotor:
     "An object representing a servo"
 
     def __init__( self, pin: int ):
-        self.io = servo.Servo( pwmio.PWMOut(
+        self.io = smallmotor.Servo( pwmio.PWMOut(
             SERVO_PIN[pin],
             duty_cycle = CYCLE,
             frequency  = FRQ
@@ -56,7 +56,7 @@ class servo:
         self.io.angle = speed
         # TODO: Stop the servo
 
-class dc:
+class largemotor:
     "An object representing a DC motor"
 
     def __init__( self, pinset: int ):
@@ -79,7 +79,7 @@ def pause( seconds: float = 0.05 ) -> None:
     "Wait the given number of seconds before moving on"
     time.sleep( seconds )
 
-def pause_until( condition ) -> None:
+def until( condition ) -> None:
     "Wait until the given condition is satisfied"
     while not condition():
         pause()
