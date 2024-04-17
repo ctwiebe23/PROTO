@@ -3,7 +3,6 @@ import digitalio
 import time
 import pwmio
 from adafruit_motor import servo, motor
-from typing import Callable
 
 """
 Carston Wiebe
@@ -12,7 +11,7 @@ carstonwiebe17@gmail.com
 CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 """
 
-dc_motors: list[motor] = []
+dc_motors: list[dc]    = []
 servos:    list[servo] = []
 
 CYCLE = 2 ** 15  # duty cycle
@@ -57,7 +56,7 @@ class servo:
         self.io.angle = speed
         # TODO: Stop the servo
 
-class motor:
+class dc:
     "An object representing a DC motor"
 
     def __init__( self, pinset: int ):
@@ -80,13 +79,12 @@ def pause( seconds: float ) -> None:
     "Wait the given number of seconds before moving on"
     time.sleep( seconds )
 
-def pause_until( condition: Callable[[], bool] ) -> None:
+def pause_until( condition ) -> None:
     "Wait until the given condition is satisfied"
     while not condition():
         pause( 0.05 )
 
-def loop( code:      Callable[[], None],
-          condition: Callable[[], bool] = lambda : False ) -> None:
+def loop( code, condition = lambda : False ) -> None:
     """
     Loops the given code indefinitely or until the given termination condition
     is met

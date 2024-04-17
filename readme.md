@@ -1,7 +1,7 @@
 # Make
 
 Make is a single file that can be downloaded and added to your project that
-gives you access to a bunch of tools that make programming your own robot
+gives you access to a bunch of tools which make programming your own robot
 simpler than ever!
 
 ---
