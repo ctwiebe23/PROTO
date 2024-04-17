@@ -45,7 +45,7 @@ class smallmotor:
     "An object representing a servo"
 
     def __init__( self, pin: int ):
-        self.io = smallmotor.Servo( pwmio.PWMOut(
+        self.io = servo.Servo( pwmio.PWMOut(
             SERVO_PIN[pin],
             duty_cycle = CYCLE,
             frequency  = FRQ
