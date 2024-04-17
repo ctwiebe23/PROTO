@@ -1,5 +1,9 @@
 # Make
 
+Make is a wrapper library for CIRCUITPython designed to be used with the
+MakerPI RP2040 by the University of Nebraska-Lincoln's SPARK student
+orginization to aid in simplifying robotics education.
+
 1. [Setup]
 2. [Basics of Python]
 3. [Basics of Make]
