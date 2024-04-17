@@ -1,16 +1,14 @@
 # Basics of Make
 
 - button
-  - is_pressed
+  - is\_pressed
 - motor
   - spin
 - servo
   - spin
 - pause
-- pause_until
+- pause\_until
 
-Start: [Start] | Previous: [Basics of Python] | Next: [Examples]
-
-[Start]: ../readme.md
-[Basics of Python]: python.md
-[Examples]: examples.md
+Start: [Start](../readme.md)
+| Previous: [Basics of Python](./python.md)
+| Next: [Examples](./examples.md)

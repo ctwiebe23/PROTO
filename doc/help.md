@@ -1,6 +1,4 @@
 # Common Problems
 
-Start: [Start] | Previous: [Advanced Topics]
-
-[Start]: ../readme.md
-[Advanced Topics]: advanced.md
+Start: [Start](../readme.md)
+| Previous: [Advanced Topics](./advanced.md)

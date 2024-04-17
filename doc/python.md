@@ -12,8 +12,6 @@
 
 [functions]
 
-Start: [Start] | Previous: [Setup] | Next: [Basics of Make]
-
-[Start]: ../readme.md
-[Setup]: setup.md
-[Basics of Make]: make.md
+Start: [Start](../readme.md)
+| Previous: [Setup](./setup.md)
+| Next: [Basics of Make](./make.md)

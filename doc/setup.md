@@ -1,9 +1,6 @@
 # Setup
 
-[Download]
+[Download](../src/make.py)
 
-Previous: [Start] | Next: [Basics of Python]
-
-[Start]: ../readme.md
-[Basics of Python]: python.md
-[Download]: ../src/make.py
+Previous: [Start](../readme.md)
+| Next: [Basics of Python](./python.md)
