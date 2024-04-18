@@ -1,18 +1,19 @@
-import make
+import make                          # start the code
 
-on_button  = make.button(1)
-off_button = make.button(2)
-motor = make.largemotor(7)
+onbutton  = make.button(1)           # on button on port 1
+offbutton = make.button(2)           # off button on port 2
+dcmotor   = make.largemotor(7)       # large motor on port 7
 
-make.until(on_button.pressed)
+make.until(onbutton.pressed)         # pause until the on button is pressed
+dcmotor.spin(50, 1.5)                # spin the dc at 50% speed for 1.5 seconds
 
-motor.spin(-50)
-make.pause(1.5)
-motor.spin(0)
+# loop for as long as both on and off aren't pressed at once
+while not (onbutton.pressed() and offbutton.pressed()):
+    
+    if onbutton.pressed():           # if the on button is pressed,
+        dcmotor.spin(-50)            # spin the dc at 50% speed backwards
 
-while not (on_button.pressed() and off_button.pressed()):
-    if on_button.pressed():
-        motor.spin(50)
-    if off_button.pressed():
-        motor.spin(0)
-    make.pause()
+    if offbutton.pressed():          # if the off button is pressed,
+        dcmotor.stop()               # stop the dc
+
+    make.pause()                     # pause for a very, very short time
