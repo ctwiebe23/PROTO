@@ -9,7 +9,7 @@ dcmotor.spin(50, 1.5)                # spin the dc at 50% speed for 1.5 seconds
 
 # loop for as long as both on and off aren't pressed at once
 while not (onbutton.pressed() and offbutton.pressed()):
-    
+
     if onbutton.pressed():           # if the on button is pressed,
         dcmotor.spin(-50)            # spin the dc at 50% speed backwards
 

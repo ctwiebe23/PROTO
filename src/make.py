@@ -80,7 +80,7 @@ class largemotor:
         if seconds != None:
             pause( seconds )
             self.io.throttle = 0
-    
+
     def stop( self ) -> None:
         "Stops the motor"
         self.spin( 0 )
