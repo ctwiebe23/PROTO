@@ -12,8 +12,13 @@ CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 """
 
 
-CYCLE = 2 ** 15  # duty cycle
-FRQ   = 50       # frequency
+CYCLE = 2 ** 15
+FRQ   = 50
+
+GROVE_PIN = {}
+
+largemotors = []
+smallmotors = []
 
 
 class button:
