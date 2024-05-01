@@ -3,9 +3,9 @@
 - [x] `largemotor`
   - [x] `spin`
   - [x] `stop`
-- [ ] `smallmotor`
+- [x] `smallmotor`
   - [x] `spin`
-  - [ ] `stop`
+  - [x] `stop`
 - [ ] `distancesensor`
   - [ ] `distance`
 - [x] `pause`

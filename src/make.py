@@ -11,11 +11,18 @@ carstonwiebe17@gmail.com
 CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 """
 
+reversed = -1  # for reversing servos and dc motors
 
 CYCLE = 2 ** 15
 FRQ   = 50
 
-GROVE_PIN = {}
+GROVE_PIN = {
+    9:  (board.GP2 , board.GP3 ),
+    10: (board.GP4 , board.GP5 ),
+    11: (board.GP16, board.GP17),
+    12: (board.GP6 , board.GP26),
+    13: (board.GP26, board.GP27),
+}
 
 largemotors = []
 smallmotors = []
@@ -30,7 +37,7 @@ class button:
     }
 
     def __init__( self, pin: int ):
-        self.io           = digitalio.DigitalInOut( self.BUTTON_PIN[pin] )
+        self.io = digitalio.DigitalInOut( self.BUTTON_PIN[pin] )
         self.io.direction = digitalio.Direction.INPUT
         self.io.pull      = digitalio.Pull.UP
 
@@ -49,17 +56,24 @@ class smallmotor:  # TODO
         6: board.GP15,
     }
 
-    def __init__( self, pin: int ):
-        self.io = servo.Servo( pwmio.PWMOut(
+    def __init__( self, pin: int, direction: int = 1 ):
+        self.io = servo.ContinuousServo( pwmio.PWMOut(
             self.SERVO_PIN[pin],
-            duty_cycle = CYCLE,
-            frequency  = FRQ
+            frequency = FRQ
         ))
+        self.direction = direction
 
-    def spin( self, speed: float ) -> None:
+    def spin( self, speed: float, seconds: float = None ) -> None:
         "Spin the servo at the given speed"
-        self.io.angle = speed
-        # TODO: Stop the servo
+        speed = 100 if speed > 100 else -100 if speed < -100 else speed
+        self.io.throttle = speed / 100 * self.direction
+        if seconds != None:
+            pause( seconds )
+            self.io.throttle = 0
+            
+    def stop( self ) -> None:
+        "Stops the motor"
+        self.spin( 0 )
 
 
 class largemotor:
@@ -70,10 +84,11 @@ class largemotor:
         8: (board.GP10, board.GP11),
     }
 
-    def __init__( self, pinset: int ):
+    def __init__( self, pinset: int, direction: int = 1 ):
         forward  = pwmio.PWMOut( self.DC_PIN[pinset][0], frequency = FRQ )
         backward = pwmio.PWMOut( self.DC_PIN[pinset][1], frequency = FRQ )
         self.io  = motor.DCMotor( forward, backward )
+        self.direction = direction
 
     def spin( self, speed: float, seconds: float = None ) -> None:
         """
@@ -81,7 +96,7 @@ class largemotor:
         period is given then it spins until stopped
         """
         speed = 100 if speed > 100 else -100 if speed < -100 else speed
-        self.io.throttle = speed / 100
+        self.io.throttle = speed / 100 * self.direction
         if seconds != None:
             pause( seconds )
             self.io.throttle = 0
