@@ -13,8 +13,7 @@ CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 
 reversed = -1  # for reversing servos and dc motors
 
-CYCLE = 2 ** 15
-FRQ   = 50
+FRQ = 50
 
 GROVE_PIN = {
     9:  (board.GP2 , board.GP3 ),
