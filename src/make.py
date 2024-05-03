@@ -45,7 +45,7 @@ class button:
         return not self.io.value
 
 
-class smallmotor:  # TODO
+class smallmotor:
     "An object representing a servo"
 
     SERVO_PIN = {
@@ -69,7 +69,7 @@ class smallmotor:  # TODO
         if seconds != None:
             pause( seconds )
             self.io.throttle = 0
-            
+
     def stop( self ) -> None:
         "Stops the motor"
         self.spin( 0 )

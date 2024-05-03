@@ -1,19 +1,20 @@
 import make
 
 
-onbutton  = make.button( 1 )
-offbutton = make.button( 2 )
-servo     = make.smallmotor( 3 )
+forward  = make.button( 1 )
+backward = make.button( 2 )
+servo    = make.smallmotor( 3 )
 
 
-while not ( onbutton.pressed() and offbutton.pressed() ):
-    
-    if onbutton.pressed():
+while True:  # loops forever
+
+    if forward.pressed():
         servo.spin( 100 )
 
-    if offbutton.pressed():
+    if backward.pressed():
         servo.spin( -100 )
-        
-    make.pause()
 
-servo.stop()
+    if forward.pressed() and backward.pressed():
+        servo.stop()
+
+    make.pause()  # pause briefly before looping
