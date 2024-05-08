@@ -1,6 +1,6 @@
 # Make
 
-Make is a toolbox of functions that mostly serve as wrappers for CIRCUIPython
+Make is a toolbox of functions that mostly serve as wrappers for CIRCUITPython
 that is used by the University of Nebraska Lincoln's SPARK RSO to aid in
 robotics education. The goal of the project is to create a psuedo-programming
 language that middle school/upper elementary aged students can use to code
