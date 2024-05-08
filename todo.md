@@ -6,6 +6,12 @@
   - [ ] `distance`
 - [ ] `stopall`
 - [ ] `GROVE` ports
+- [ ] restructure into library
+  - options:
+    - build
+    - setuptools
+    - pip
+    - horribly over-engineered and impractical bash script (best option)
 
 ## Documentation
 

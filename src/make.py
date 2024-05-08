@@ -16,7 +16,7 @@ reversed = -1  # for reversing servos and dc motors
 FRQ = 50
 
 GROVE_PIN = {
-    9:  (board.GP2 , board.GP3 ),
+    9 : (board.GP2 , board.GP3 ),
     10: (board.GP4 , board.GP5 ),
     11: (board.GP16, board.GP17),
     12: (board.GP6 , board.GP26),
@@ -31,12 +31,14 @@ class button:
     "An object representing a button"
 
     BUTTON_PIN = {
-        1: board.GP20,
-        2: board.GP21,
+        1: (board.GP20, None),
+        2: (board.GP21, None),
     }
+    
+    BUTTON_PIN.update(GROVE_PIN)
 
-    def __init__( self, pin: int ):
-        self.io = digitalio.DigitalInOut( self.BUTTON_PIN[pin] )
+    def __init__( self, pinset: int ):
+        self.io = digitalio.DigitalInOut( self.BUTTON_PIN[pinset][0] )
         self.io.direction = digitalio.Direction.INPUT
         self.io.pull      = digitalio.Pull.UP
 
@@ -49,15 +51,17 @@ class smallmotor:
     "An object representing a servo"
 
     SERVO_PIN = {
-        3: board.GP12,
-        4: board.GP13,
-        5: board.GP14,
-        6: board.GP15,
+        3: (board.GP12, None),
+        4: (board.GP13, None),
+        5: (board.GP14, None),
+        6: (board.GP15, None),
     }
-
-    def __init__( self, pin: int, direction: int = 1 ):
+    
+    SERVO_PIN.update(GROVE_PIN)
+    
+    def __init__( self, pinset: int, direction: int = 1 ):
         self.io = servo.ContinuousServo( pwmio.PWMOut(
-            self.SERVO_PIN[pin],
+            self.SERVO_PIN[pinset][0],
             frequency = FRQ
         ))
         self.direction = direction
