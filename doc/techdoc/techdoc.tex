@@ -1,19 +1,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Carston Wiebe & Cameron Scheet
-% YRLess Design Document
+% Carston Wiebe
+% MAKE Design Document
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{scrartcl} %or scrbook
 
 \usepackage{xcolor}
-\usepackage[colorlinks=true,
-            urlcolor=darkblue,
-            citecolor=darkergreen,
-            linkcolor=darkblue,
-            plainpages=false,
-            pdfpagelabels]{hyperref}
+\usepackage[
+  colorlinks=true,
+  urlcolor=darkblue,
+  citecolor=darkergreen,
+  linkcolor=darkblue,
+  plainpages=false,
+  pdfpagelabels
+]{hyperref}
 \usepackage{graphicx}
 \graphicspath{ {./images} }
 % \usepackage{minted}
@@ -28,22 +30,27 @@
 \definecolor{left}{HTML}{041832}
 \definecolor{secondary}{HTML}{241024}
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{.25cm}
-\pagestyle{fancy}
+\setlength{\parindent}{0pt} \setlength{\parskip}{.25cm} \pagestyle{fancy}
 
 \title{MAKE}
-\subtitle{Python Toolbox for \\
-          Robotics Education}
-\author{Carston Wiebe \\
-        \href{mailto:cwiebe3@huskers.unl.edu}{cwiebe3@huskers.unl.edu} \\
+\subtitle{
+  Python Toolbox for \\
+  Robotics Education
+}
+\author{
+  Carston Wiebe \\
+  \href{mailto:cwiebe3@huskers.unl.edu}{cwiebe3@huskers.unl.edu} \\
 }
 
-\date{2024-04 \\
-      Version 3.0
+\date{
+  2024-04 \\
+  Version 3.0
 }
 
 \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \maketitle
 \thispagestyle{empty}
@@ -54,8 +61,11 @@
   Abstract TODO
 \end{abstract}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section*{REVISIONS}
 
 \begin{table}[htp]
@@ -63,27 +73,33 @@
   \def\arraystretch{1.5}
   \begin{tabular}{|l|l|l|}
     \hline
-    DATE & CHANGE(S) & AUTHOR(S) \\
+    DATE       & CHANGE(S)                   & AUTHOR(S) \\
     \hline
-    2024-04-29 & translated doc to latex & C. Wiebe \\
+    2024-04-29 & translated doc to latex     & C. Wiebe  \\
     \hline
-    2024-04-22 & translated doc to markdown & C. Wiebe \\
+    2024-04-22 & translated doc to markdown  & C. Wiebe  \\
     \hline
-    2024-04-21 & largemotor \& button & C. Wiebe \\
+    2024-04-21 & largemotor \& button        & C. Wiebe  \\
     \hline
-    2024-04-12 & dc\_motors, servos, stopall & C. Wiebe \\
+    2024-04-12 & dc\_motors, servos, stopall & C. Wiebe  \\
     \hline
-    2024-04-10 & PHILOSOPHY & C. Wiebe \\
+    2024-04-10 & PHILOSOPHY                  & C. Wiebe  \\
     \hline
-    2024-04-06 & techdoc creation & C. Wiebe \\
+    2024-04-06 & techdoc creation            & C. Wiebe  \\
     \hline
   \end{tabular}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \tableofcontents
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{INTRODUCTION}
 
 \subsection{PURPOSE}
@@ -119,8 +135,16 @@ that won't be caught by the computer without an IDE).
     board.GP10, create a dict with the key 10 and value board.GP10
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{CONTENT}
 \label{section:detailedDesignDescription}
+
+TODO content
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}

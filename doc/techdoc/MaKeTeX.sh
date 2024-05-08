@@ -5,8 +5,7 @@
 NAME='techdoc'
 
 # if .TEX file does not exist, throw an error
-if ! [ -f "$NAME.tex" ]
-then
+if [ ! -f "$NAME.tex" ]; then
   echo "ERROR: could not locate .TEX"
   exit 1
 fi
@@ -21,13 +20,13 @@ MARKED=(
   'log'
   'out'
   'toc'
+  'fdb_latexmk'
+  'fls'
 )
 
 # if marked file exists, remove it
-for EXT in "${MARKED[@]}"
-do
-  if [ -f "$NAME.$EXT" ]
-  then
+for EXT in "${MARKED[@]}"; do
+  if [ -f "$NAME.$EXT" ]; then
     rm "$NAME.$EXT"
   fi
 done
