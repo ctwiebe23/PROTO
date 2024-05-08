@@ -1,14 +1,20 @@
 # TODO
 
-- [x] `largemotor`
-  - [x] `spin`
-  - [x] `stop`
-- [x] `smallmotor`
-  - [x] `spin`
-  - [x] `stop`
+## Code
+
 - [ ] `distancesensor`
   - [ ] `distance`
-- [x] `pause`
-- [x] `until`
 - [ ] `stopall`
 - [ ] `GROVE` ports
+
+## Documentation
+
+- [ ] techdoc
+  - [ ] finish translating markdown to latex
+- [ ] pages (markdown in `./doc/`)
+  - [ ] advanced
+  - [ ] examples
+  - [ ] help
+  - [ ] make
+  - [ ] python
+  - [ ] setup
