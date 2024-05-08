@@ -7,9 +7,9 @@ language that middle school/upper elementary aged students can use to code
 robots and learn simple programming skills. Intended for use with the MakerPi
 RP2040.
 
-This documentation contains a simple introduction to topics covered by the project
-so that interested students can self-teach use of the library if needed, and to provide teachers
-with resources needed to teach themselves.
+This documentation contains a simple introduction to topics covered by the
+project so that interested students can self-teach use of the library if
+needed, and to provide teachers with resources needed to teach themselves.
 
 [Technical Documentation](doc/techdoc/techdoc.pdf) is also available.
 
