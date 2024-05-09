@@ -9,13 +9,13 @@
 # since we need MAKE as a single plain, boring, text-based python file but
 # don't want to deal with that, I have decided to implement
 #
-# ============================================================================
+# +--------------------------------------------------------------------------+
 # |                                                                          |
 # |                                B A P C A T                               |
 # |                                                                          |
-# |        -[ the Bash-based Awful Python Condenser And Translator ]-        |
+# |       - [ the Bash-based Awful Python Condenser And Translator ] -       |
 # |                                                                          |
-# ============================================================================
+# +--------------------------------------------------------------------------+
 #
 # BAPCAT will take a collection of individual python files and combine them
 # into one horrible amalgamation of a file that contains the contents of each
@@ -37,7 +37,7 @@
 IFS=$'\n'  # internal field seperator, must be newlines only to handle code
 
 if [ ! -f 'bapcat' ]; then  # don't overwrite anything you don't want to
-  read -p 'are you sure you are in the right directory? (y/n)' ANS
+  read -p 'are you sure you are in the right directory? (y/n) ' ANS
   if [ ! "$ANS" = 'y' ]; then
     echo 'terminating program'
     exit 1
@@ -58,24 +58,25 @@ TAIL=()
 
 # populate buffers
 ABSORB () {
-  HEAD+=( $(cat $1 | grep -E ^[import]\|^[from]) )
+  HEAD+=( $(cat $1 | grep -E ^'import'\|^'from') )
   TAIL+=(
     '# ======================'
     "# SOURCE: ${1/'.py'/}"
     '# ======================'
   )
-  TAIL+=( $(cat $1 | grep -Ev ^[import]\|^[from]) )
+  TAIL+=( $(cat $1 | grep -Ev ^'import'\|^'from') )
 }
 
 for INDIVIDUAL in "${CONSTITUENTS[@]}"; do
   ABSORB "$INDIVIDUAL"
 done
 
-# push conglomerate to host
+# if previous host is in existence, purge it
 if [ -f "$HOST" ]; then
   rm "$HOST"
 fi
 
+# push the conglomerate to the host
 GROW () {
   for ASPECT in "$@"; do
     echo "$ASPECT" >> "$HOST"
@@ -86,7 +87,6 @@ GROW "${HEAD[@]}"
 
 # i hate this
 TEMP=$(cat "$HOST" | sort | uniq | grep -v '*')
-rm "$HOST"
 
 WARNING > "$HOST"
 GROW "${TEMP[@]}"

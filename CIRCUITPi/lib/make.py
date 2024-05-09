@@ -7,7 +7,6 @@ import board
 import digitalio
 import pwmio
 import time
-reversed = -1
 # ======================
 # SOURCE: alpha
 # ======================
@@ -19,9 +18,10 @@ GROVE_PIN = {
     12: (board.GP6 , board.GP26),
     13: (board.GP26, board.GP27),
 }
-# for reversing servos and dc motors
 largemotors = []
 smallmotors = []
+# for reversing servos and dc motors
+reversed = -1
 # ======================
 # SOURCE: button
 # ======================
