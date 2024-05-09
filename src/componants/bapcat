@@ -38,7 +38,7 @@ IFS=$'\n'  # internal field seperator, must be newlines only to handle code
 
 if [ ! -f 'bapcat' ]; then  # don't overwrite anything you don't want to
   read -p 'are you sure you are in the right directory? (y/n)' ANS
-  if [! "$ANS" = 'y' ]; then
+  if [ ! "$ANS" = 'y' ]; then
     echo 'terminating program'
     exit 1
   fi
