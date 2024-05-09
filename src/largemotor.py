@@ -1,7 +1,7 @@
 import board
 import pwmio
 from adafruit_motor import motor
-from base import *
+from alpha import *
 from functions import *
 
 class largemotor:

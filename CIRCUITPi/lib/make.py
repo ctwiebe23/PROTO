@@ -7,15 +7,10 @@ import board
 import digitalio
 import pwmio
 import time
-reversed = -1  # for reversing servos and dc motors
+reversed = -1
 # ======================
-# SOURCE: base
+# SOURCE: alpha
 # ======================
-"""
-Carston Wiebe
-carstonwiebe17@gmail.com
-CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
-"""
 FRQ = 50
 GROVE_PIN = {
     9 : (board.GP2 , board.GP3 ),
@@ -24,6 +19,7 @@ GROVE_PIN = {
     12: (board.GP6 , board.GP26),
     13: (board.GP26, board.GP27),
 }
+# for reversing servos and dc motors
 largemotors = []
 smallmotors = []
 # ======================
@@ -35,7 +31,6 @@ class button:
         1: (board.GP20, None),
         2: (board.GP21, None),
     }
-    
     BUTTON_PIN.update(GROVE_PIN)
     def __init__( self, pinset: int ):
         self.io = digitalio.DigitalInOut( self.BUTTON_PIN[pinset][0] )
@@ -107,9 +102,7 @@ class smallmotor:
         5: (board.GP14, None),
         6: (board.GP15, None),
     }
-    
     SERVO_PIN.update(GROVE_PIN)
-    
     def __init__( self, pinset: int, direction: int = 1 ):
         self.io = servo.ContinuousServo( pwmio.PWMOut(
             self.SERVO_PIN[pinset][0],

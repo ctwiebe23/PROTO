@@ -6,7 +6,6 @@ from adafruit_motor import motor, servo
 
 """
 Carston Wiebe
-carstonwiebe17@gmail.com
 
 CIRCUITPYTHON code to test the Maker PI RP2040 with servos and dc motors
 """

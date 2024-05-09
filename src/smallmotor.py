@@ -1,7 +1,7 @@
 import board
 import pwmio
 from adafruit_motor import servo
-from base import *
+from alpha import *
 from functions import *
 
 class smallmotor:
@@ -13,9 +13,9 @@ class smallmotor:
         5: (board.GP14, None),
         6: (board.GP15, None),
     }
-    
+
     SERVO_PIN.update(GROVE_PIN)
-    
+
     def __init__( self, pinset: int, direction: int = 1 ):
         self.io = servo.ContinuousServo( pwmio.PWMOut(
             self.SERVO_PIN[pinset][0],
