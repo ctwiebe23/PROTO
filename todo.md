@@ -5,8 +5,8 @@
 - [ ] `distancesensor`
   - [ ] `distance`
 - [ ] `stopall`
-- [ ] `GROVE` ports
-- [ ] restructure into library
+- [x] `GROVE` ports
+- [x] restructure into library
   - options:
     - build
     - setuptools
