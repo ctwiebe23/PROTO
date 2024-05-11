@@ -19,11 +19,11 @@
 #
 # BAPCAT will take a collection of individual python files and combine them
 # into one horrible amalgamation of a file that contains the contents of each
-# of its constituents in their entirety, will minor editing and reformatting to
+# of its constituents in their entirety, with minor editing and reformatting to
 # ensure the final "library-like archive file" will run
 #
 # using this amazing tool, we can write code as you would normally-- one class
-# to a file, will good file structure that ensures we aren't trawling through
+# to a file, with good file structure that ensures we aren't trawling through
 # 200 lines of unrelated code to find what we're interested in, while still
 # producing a single, runnable file that we can install onto a PI easily
 #
