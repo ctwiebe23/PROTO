@@ -6,6 +6,7 @@
   - [ ] `distance`
 - [ ] `stopall`
 - [x] `GROVE` ports
+- [x] `drivetrain`
 - [x] restructure into library
   - options:
     - build
