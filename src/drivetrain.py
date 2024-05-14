@@ -22,7 +22,7 @@ class drivetrain:
         """
         Spins both motors at different speeds. If a time is given, stops after
         the time has elapsed.
-        """   
+        """
         self.__lDrive.spin( lSpeed )
         self.__rDrive.spin( rSpeed )
         if seconds != None:
@@ -33,9 +33,9 @@ class drivetrain:
         """
         Spins both motors at the same speed. If a time is given, stops after
         the time has elapsed.
-        """   
+        """
         self.curve( speed, speed, seconds )
-    
+
     def turn( self, speed: float, seconds: float = None ) -> None:
         """
         Rotates on the spot at the given speed. If a time is given, stops
