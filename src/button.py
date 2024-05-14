@@ -1,22 +1,21 @@
 import board
 import digitalio
-from alpha import *
+
+__BUTTON_PIN = {
+    1: (board.GP20, None),
+    2: (board.GP21, None),
+}
+
+__BUTTON_PIN.update(__GROVE_PIN)
 
 class button:
     "An object representing a button"
 
-    BUTTON_PIN = {
-        1: (board.GP20, None),
-        2: (board.GP21, None),
-    }
-
-    BUTTON_PIN.update(GROVE_PIN)
-
     def __init__( self, pinset: int ):
-        self.io = digitalio.DigitalInOut( self.BUTTON_PIN[pinset][0] )
-        self.io.direction = digitalio.Direction.INPUT
-        self.io.pull      = digitalio.Pull.UP
+        self.__io = digitalio.DigitalInOut( __BUTTON_PIN[pinset][0] )
+        self.__io.direction = digitalio.Direction.INPUT
+        self.__io.pull      = digitalio.Pull.UP
 
     def pressed( self ) -> bool:
         "Returns true if the button is pressed, false otherwise"
-        return not self.io.value
+        return not self.__io.value

@@ -51,7 +51,7 @@ WARNING () {
 }
 
 # variable declaration
-HOST='../CIRCUITPi/lib/make.py'
+HOST='../CIRCUITPY/lib/make.py'
 CONSTITUENTS=( $(ls | grep '.py$' | grep -v "^$HOST$") )
 HEAD=()
 TAIL=()
