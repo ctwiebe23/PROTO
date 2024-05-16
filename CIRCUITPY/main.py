@@ -12,7 +12,7 @@ grasp      = make.smallmotor(6)
 
 graspTime  = 1.7
 graspSpeed = 100
-driveTime  = 2
+driveTime  = 1
 driveSpeed = 75
 
 
