@@ -8,21 +8,21 @@ right  = digitalio.DigitalInOut(board.GP20)
 right  = digitalio.Direction.INPUT
 right  = digitalio.Pull.UP
 
-moterA = servo.ContinuousServo(
+motorA = servo.ContinuousServo(
   pwmio.PWMOut(board.GP12, frequency = 50)
 )
-moterB = servo.ContinuousServo(
+motorE = servo.ContinuousServo(
   pwmio.PWMOut(board.GP13, frequency = 50)
 )
 
 speed  = 0.5
 
 def Forward():
-  moterA.throttle = speed
-  moterB.throttle = speed * -1
+  motorA.throttle = speed
+  motorE.throttle = speed
   time.sleep(2)
-  moterA.throttle = 0
-  moterB.throttle = 0
+  motorA.throttle = 0
+  motorE.throttle = 0
 
 while True:
   if not right.value:

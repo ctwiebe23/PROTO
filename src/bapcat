@@ -92,4 +92,4 @@ WARNING > "$HOST"
 GROW "${TEMP[@]}"
 GROW "${TAIL[@]}"
 
-exit 1  # there is no situation in which this code runs successfully
+exit 0

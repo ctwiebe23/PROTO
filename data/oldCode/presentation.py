@@ -2,9 +2,9 @@ import make
 
 right  = make.button(1)
 
-moterA = make.smallmotor(3)
-moterB = make.smallmotor(4)
-robot  = make.drivetrain(moterA, moterB)
+motorA = make.largemotor(7)
+motorE = make.largemotor(8)
+robot  = make.drivetrain(motorA, motorE)
 
 speed  = 50
 
