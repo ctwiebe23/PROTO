@@ -20,7 +20,6 @@ __GROVE_PIN = {
 }
 __largemotors = []
 __smallmotors = []
-# for reversing servos and dc motors
 reversed = -1
 # ======================
 # SOURCE: button
@@ -94,7 +93,6 @@ def until( condition ) -> None:
     "Wait until the given condition is satisfied"
     while not condition():
         pause()
-# TODO: chopping block
 def loop( code, condition = lambda : False ) -> None:
     """
     Loops the given code indefinitely or until the given termination condition

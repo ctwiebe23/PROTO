@@ -36,7 +36,8 @@
 
 IFS=$'\n'  # internal field seperator, must be newlines only to handle code
 
-if [ ! -f 'bapcat' ]; then  # don't overwrite anything you don't want to
+# don't overwrite anything you don't want to
+if [ ! -f 'bapcat' ]; then
   read -p 'are you sure you are in the right directory? (y/n) ' ANS
   if [ ! "$ANS" = 'y' ]; then
     echo 'terminating program'
@@ -64,7 +65,7 @@ ABSORB () {
     "# SOURCE: ${1/'.py'/}"
     '# ======================'
   )
-  TAIL+=( $(cat $1 | grep -Ev ^'import'\|^'from') )
+  TAIL+=( $(cat $1 | grep -Ev ^'import'\|^'from'\|^'#') )
 }
 
 for INDIVIDUAL in "${CONSTITUENTS[@]}"; do
@@ -79,17 +80,12 @@ fi
 # push the conglomerate to the host
 GROW () {
   for ASPECT in "$@"; do
-    echo "$ASPECT" >> "$HOST"
+    echo "$ASPECT"
   done
 }
 
-GROW "${HEAD[@]}"
-
-# i hate this
-TEMP=$(cat "$HOST" | sort | uniq | grep -v '*')
-
 WARNING > "$HOST"
-GROW "${TEMP[@]}"
-GROW "${TAIL[@]}"
+GROW "${HEAD[@]}" | sort | uniq | grep -v '*' >> "$HOST"
+GROW "${TAIL[@]}" >> "$HOST"
 
 exit 0
