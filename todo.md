@@ -5,10 +5,10 @@
 - [ ] `distancesensor`
   - [ ] `distance`
 - [ ] `stopall`
-- [ ] `drivetrain`
-  - [ ] optional constructors
-    - [ ] make reversed
-    - [ ] handle drift
+- [x] `drivetrain`
+  - [x] optional constructors
+    - [x] make reversed
+    - [x] handle drift
 
 ## Documentation
 

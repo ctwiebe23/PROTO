@@ -1,5 +1,6 @@
 import board
 import pwmio
+import math
 from adafruit_motor import servo
 from functions import *
 
@@ -20,7 +21,7 @@ class smallmotor:
             __SERVO_PIN[pinset][0],
             frequency = __FRQ
         ))
-        self.__direction = direction
+        self.__direction = math.copysign( 1, direction )
 
     def spin( self, speed: float, seconds: float = None ) -> None:
         "Spin the servo at the given speed"

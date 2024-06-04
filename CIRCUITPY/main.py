@@ -4,9 +4,9 @@ import lib.make as make
 counter    = make.button(1)
 enter      = make.button(2)
 
-left       = make.largemotor(7, make.reversed)
-right      = make.largemotor(8, make.reversed)
-robot      = make.drivetrain(left, right)
+left       = make.largemotor(7)
+right      = make.largemotor(8)
+robot      = make.drivetrain(left, right, drift = 0.9)
 
 grasp      = make.smallmotor(6)
 
@@ -17,10 +17,10 @@ driveSpeed = 75
 
 
 def driveForward():
-  robot.curve(driveSpeed * 0.9, driveSpeed, driveTime)
+  robot.drive(driveSpeed, driveTime)
 
 def driveBackward():
-  robot.curve(driveSpeed * -0.9, driveSpeed * -1, driveTime)
+  robot.drive(-driveSpeed, driveTime)
 
 def spin():
   robot.turn(driveSpeed, driveTime)
