@@ -21,3 +21,7 @@
   - [ ] make
   - [ ] python
   - [ ] setup
+
+## Long Term
+
+- [ ] Make platform independant
