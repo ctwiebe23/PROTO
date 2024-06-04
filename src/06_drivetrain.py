@@ -19,7 +19,7 @@ class drivetrain:
             math.copysign( 1, direction ),
             drift
         )
-            
+
     def __calcMods( direction: int, drift: float ) -> tuple[float, float]:
         """
         Calculates the constants that will be applied to the drivetrain's left
