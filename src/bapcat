@@ -5,7 +5,7 @@
 #   1) we need MAKE in a single file to easily drag and drop into PIs
 #   2) writing all the code consecutively in a large file will become difficult
 #      to maintain
-#   3) CIRCUITPython does not support python library files like Wheels
+#   3) the PIs do not support python library files
 # since we need MAKE as a single plain, boring, text-based python file but
 # don't want to deal with that, I have decided to implement
 #
@@ -77,7 +77,7 @@ do
   ABSORB "$INDIVIDUAL"
 done
 
-WARNING > "$HOST"
+WARNING > "$HOST"  # if previous host exists, purge it and take its place
 GROW "${HEAD[@]}" | sort | uniq | grep -v '*' >> "$HOST"
 GROW "${TAIL[@]}" >> "$HOST"
 
