@@ -5,10 +5,7 @@
 NAME='techdoc'
 
 # if .TEX file does not exist, throw an error
-if [ ! -f "$NAME.tex" ]; then
-  echo "ERROR: could not locate .TEX"
-  exit 1
-fi
+[ ! -f "$NAME.tex" ] && echo "ERROR: could not locate .TEX" && exit 1
 
 # generate the .PDF
 pdflatex "$NAME.tex"
@@ -25,8 +22,7 @@ MARKED=(
 )
 
 # if marked file exists, remove it
-for EXT in "${MARKED[@]}"; do
-  if [ -f "$NAME.$EXT" ]; then
-    rm "$NAME.$EXT"
-  fi
+for EXT in "${MARKED[@]}"
+do
+  [ -f "$NAME.$EXT" ] && rm "$NAME.$EXT"
 done

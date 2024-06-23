@@ -62,4 +62,5 @@ WARN | cat - HEAD# TAIL# > "$HOST"
 # these files have outlived their usefulness to us
 [ -f 'HEAD#' ] && rm HEAD#
 [ -f 'TAIL#' ] && rm TAIL#
+
 exit 0
