@@ -24,12 +24,12 @@ def driveBackward():
 
 def spin():
   robot.turn(driveSpeed, driveTime)
-      
+
 def toggleGrasp():
   global graspSpeed
   grasp.spin(graspSpeed, graspTime)
   graspSpeed *= -1
-  
+
 def demo():
   driveForward()
   spin()
@@ -48,13 +48,13 @@ programs  = {
 
 
 while True:
-  
+
   if counter.pressed():
     selection += 1 if selection < 4 else 0
     make.pause(0.1)
-  
+
   if enter.pressed():
     programs[selection]()
     selection = 0
-  
+
   make.pause()
