@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ========================[ BAPCAT ]========================
+# =====================[ B A P C A T ]======================
 # |                                                        |
 # | AUTHOR : Carston Wiebe (cwiebe3@huskers.unl.edu)       |
 # | DESC   : a BASH-based Python concater                  |
@@ -44,13 +44,13 @@ function WARN {
 
 WARN > 'WARN.TMP'
 
-while IFS='' read LINE  # for each line in constituents
+cat "${CONSTITUENTS[@]}" | while IFS='' read LINE
 do
   # if line starts with 'import' or 'from' add to head, else add to tail if not
   # comment or empty
   [[ "$LINE" =~ ^'import'|^'from' ]] && echo "$LINE" >> 'HEAD.TMP' && continue
   [[ ! "$LINE" =~ ^'#'|^\s*$ ]]      && echo "$LINE" >> 'TAIL.TMP'
-done <<< "$(cat ${CONSTITUENTS[@]})"
+done
 
 # sort head, remove duplicates and interfile connections; push warning, head,
 # and tail to host
