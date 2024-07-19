@@ -1,21 +1,22 @@
 import lib.make as make
 
+# demo code for initial presentation
 
-counter    = make.button(1)
-enter      = make.button(2)
+# componant declaration
+counter = make.button(1)
+enter   = make.button(2)
+left    = make.largemotor(7)
+right   = make.largemotor(8)
+robot   = make.drivetrain(left, right, drift = 0.9)
+grasp   = make.smallmotor(6)
 
-left       = make.largemotor(7)
-right      = make.largemotor(8)
-robot      = make.drivetrain(left, right, drift = 0.9)
-
-grasp      = make.smallmotor(6)
-
+# variable declaration
 graspTime  = 1.7
 graspSpeed = 100
 driveTime  = 1
 driveSpeed = 75
 
-
+# demo functions
 def driveForward():
   robot.drive(driveSpeed, driveTime)
 
@@ -37,6 +38,7 @@ def demo():
   toggleGrasp()
   driveBackward()
 
+# demo selection
 selection = 0
 programs  = {
   0: driveForward,
@@ -46,7 +48,7 @@ programs  = {
   4: demo,
 }
 
-
+# main loop
 while True:
 
   if counter.pressed():

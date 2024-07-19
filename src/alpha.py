@@ -10,8 +10,5 @@ __GROVE_PIN = {
     13: (board.GP26, board.GP27),
 }
 
-__largemotors = []
-__smallmotors = []
-
 # for reversing servos and dc motors
 reversed = -1

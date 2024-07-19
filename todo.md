@@ -4,7 +4,6 @@
 
 - [ ] `distancesensor`
   - [ ] `distance`
-- [ ] `stopall`
 - [x] `drivetrain`
   - [x] optional constructors
     - [x] make reversed
@@ -24,4 +23,4 @@
 
 ## Long Term
 
-- [ ] Make platform independant
+- [ ] Make platform/componant independant
