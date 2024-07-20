@@ -1,13 +1,13 @@
 # Examples
 
+! example code !
+
 ```python
 import make
 
-
 forward  = make.button( 1 )
 backward = make.button( 2 )
-servo    = make.smallmotor( 3 )
-
+motor    = make.small_motor( 3 )
 
 while True:  # loops forever
 
