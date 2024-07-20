@@ -13,7 +13,7 @@
 ## Documentation
 
 - [ ] techdoc
-  - [ ] finish translating markdown to latex
+  - [x] finish translating markdown to latex
 - [ ] pages (markdown in `./doc/`)
   - [ ] advanced
   - [ ] examples
