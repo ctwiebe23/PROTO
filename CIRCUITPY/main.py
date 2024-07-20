@@ -11,40 +11,40 @@ robot       = make.wagon( left_drive, right_drive, drift = 0.9 )
 grasp_motor = make.small_motor( 6 )
 
 # variable declaration
-graspTime  = 1.7
-graspSpeed = 100
-driveTime  = 1
-driveSpeed = 75
+grasp_time  = 1.7
+grasp_speed = 100
+drive_time  = 1
+drive_speed = 75
 
 # demo functions
-def driveForward():
-  robot.drive( driveSpeed, driveTime )
+def drive_forward():
+  robot.drive( drive_speed, drive_time )
 
-def driveBackward():
-  robot.drive( -driveSpeed, driveTime )
+def drive_backward():
+  robot.drive( -drive_speed, drive_time )
 
 def spin():
-  robot.turn( driveSpeed, driveTime )
+  robot.turn( drive_speed, drive_time )
 
-def toggleGrasp():
-  global graspSpeed
-  grasp_motor.spin( graspSpeed, graspTime )
-  graspSpeed *= -1
+def toggle_grasp():
+  global grasp_speed
+  grasp_motor.spin( grasp_speed, grasp_time )
+  grasp_speed *= -1
 
 def demo():
-  driveForward()
+  drive_forward()
   spin()
-  toggleGrasp()
-  toggleGrasp()
-  driveBackward()
+  toggle_grasp()
+  toggle_grasp()
+  drive_backward()
 
 # demo selection
 selection = 0
 programs  = {
-  0: driveForward,
-  1: driveBackward,
+  0: drive_forward,
+  1: drive_backward,
   2: spin,
-  3: toggleGrasp,
+  3: toggle_grasp,
   4: demo,
 }
 
