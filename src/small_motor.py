@@ -3,6 +3,7 @@ import pwmio
 import math
 from adafruit_motor import servo
 from functions import *
+from alpha import *
 
 __SERVO_PIN = {
     3: (board.GP12, None),
@@ -11,20 +12,23 @@ __SERVO_PIN = {
     6: (board.GP15, None),
 }
 
-__SERVO_PIN.update(__GROVE_PIN)
+__SERVO_PIN.update(GROVE_PIN)
 
-class smallmotor:
-    "An object representing a servo"
+class small_motor:
+    "A small motor plugged into a small motor port or GROVE port."
 
     def __init__( self, pinset: int, direction: int = 1 ):
         self.__io = servo.ContinuousServo( pwmio.PWMOut(
             __SERVO_PIN[pinset][0],
-            frequency = __FRQ
+            frequency = FRQ
         ))
         self.__direction = math.copysign( 1, direction )
 
     def spin( self, speed: float, seconds: float = None ) -> None:
-        "Spin the servo at the given speed"
+        """
+        Spin the small motor at the given speed for the given time period; if no
+        period is given then it spins until stopped.
+        """
         speed = 100 if speed > 100 else -100 if speed < -100 else speed
         self.__io.throttle = speed / 100 * self.__direction
         if seconds != None:
@@ -32,5 +36,5 @@ class smallmotor:
             self.stop()
 
     def stop( self ) -> None:
-        "Stops the motor"
+        "Stops the small motor."
         self.spin( 0 )

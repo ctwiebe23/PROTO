@@ -1,15 +1,15 @@
 from functions import *
-from smallmotor import *
-from largemotor import *
+from small_motor import *
+from large_motor import *
 import math
 
-class drivetrain:
-    "A drivetrain consisting of 2 motors (small or large)"
+class wagon:
+    "A drivetrain made from 2 large or small motors."
 
     def __init__(
         self,
-        lDrive:    smallmotor | largemotor,
-        rDrive:    smallmotor | largemotor,
+        lDrive:    small_motor | large_motor,
+        rDrive:    small_motor | large_motor,
         direction: int   = 1,
         drift:     float = 1,
     ):
@@ -23,7 +23,8 @@ class drivetrain:
     def __calcMods( direction: int, drift: float ) -> tuple[float, float]:
         """
         Calculates the constants that will be applied to the drivetrain's left
-        and right motors
+        and right motors to modify their power levels, so that they can drive
+        straight despite drift.
         """
         if drift < 1:
           return (drift * direction, direction)
