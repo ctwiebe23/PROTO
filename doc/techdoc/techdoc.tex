@@ -207,12 +207,15 @@ Returns \mintinline{python}{true} if the button is pressed, and
                framesep=2mm,
                baselinestretch=1.2,
                fontsize=\footnotesize]{python}
-  large_motor(pin_set)
+  large_motor(pin_set, direction = 1)
 \end{minted}
 
 Represents a DC motor mounted on one of the 2 DC motor ports. Requires only a
 \mintinline{python}{pin_set} in \mintinline{python}{DC_PIN}s to be constructed,
 which limits the number of \mintinline{python}{large_motor}s to 2.
+
+\mintinline{python}{direction} is an optional variable that changes the
+direction of the motor, either positive or negative.
 
 \begin{minted}[frame=lines,
                framesep=2mm,
@@ -236,6 +239,41 @@ will only spin for the allotted time before stopping.
 Equivalent to \mintinline{python}{large_motor.spin(0)}.
 
 \subsubsection{small\_motor}
+
+\begin{minted}[frame=lines,
+               framesep=2mm,
+               baselinestretch=1.2,
+               fontsize=\footnotesize]{python}
+  small_motor(pin_set, direction = 1)
+\end{minted}
+
+Represents a servo motor mounted on one of the 4 servo motor ports or one of
+the grove ports. Requires only a \mintinline{python}{pin_set} to be
+constructed.
+
+\mintinline{python}{direction} is an optional variable that changes the
+direction of the motor, either positive or negative.
+
+\begin{minted}[frame=lines,
+               framesep=2mm,
+               baselinestretch=1.2,
+               fontsize=\footnotesize]{python}
+  small_motor.spin(speed, time = None)
+\end{minted}
+
+Takes a \mintinline{python}{speed} in the range $[-100, 100]$ (all values
+outside the range are constrained) and runs the motor at that speed.
+Optionally, a \mintinline{python}{time} can be passed in seconds and the motor
+will only spin for the allotted time before stopping.
+
+\begin{minted}[frame=lines,
+               framesep=2mm,
+               baselinestretch=1.2,
+               fontsize=\footnotesize]{python}
+  small_motor.stop()
+\end{minted}
+
+Equivalent to \mintinline{python}{small_motor.spin(0)}.
 
 \subsubsection{wagon}
 
