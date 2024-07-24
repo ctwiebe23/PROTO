@@ -30,12 +30,14 @@ set -eu  # exit script on error / undefined variable
 
 [ ! "${#@}" = '2' ] && echo 'usage: bapcat <folder> <destination>' && exit 1
 [ ! -d "$1" ]       && echo "$1 is not a valid directory"          && exit 2
+[ -d "$2" ]         && echo "$2 is a directory, not a file"        && exit 3
 
 HOST="$(realpath "$2")"     # HOST file of the amalgamation
+cd "$1"                     # hunt down the constituents
 CONSTITUENTS=(              # CONSTITUENT files of the amalgamation
-  $(ls -1 "$1" \
-      | xargs 'realpath' \
+  $(ls -1 \
       | grep '.py$' \
+      | xargs 'realpath' \
       | grep -v "^$HOST$")  # prevent a BAPCAT ouroboros
 )
 

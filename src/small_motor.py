@@ -26,8 +26,8 @@ class small_motor:
 
     def spin( self, speed: float, seconds: float = None ) -> None:
         """
-        Spin the small motor at the given speed for the given time period; if no
-        period is given then it spins until stopped.
+        Spin the small motor at the given speed for the given time period; if
+        no period is given then it spins until stopped.
         """
         speed = 100 if speed > 100 else -100 if speed < -100 else speed
         self.__io.throttle = speed / 100 * self.__direction

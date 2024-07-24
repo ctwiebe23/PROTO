@@ -8,19 +8,19 @@ class wagon:
 
     def __init__(
         self,
-        lDrive:    small_motor | large_motor,
-        rDrive:    small_motor | large_motor,
-        direction: int   = 1,
-        drift:     float = 1,
+        left_drive:  small_motor | large_motor,
+        right_drive: small_motor | large_motor,
+        direction:   int   = 1,
+        drift:       float = 1,
     ):
-        self.__lDrive = lDrive
-        self.__rDrive = rDrive
-        (self.__lMod, self.__rMod) = self.__calcMods(
+        self.__left_drive  = left_drive
+        self.__right_drive = right_drive
+        (self.__left_mod, self.__right_mod) = self.__calc_mods(
             math.copysign( 1, direction ),
             drift
         )
 
-    def __calcMods( direction: int, drift: float ) -> tuple[float, float]:
+    def __calc_mods( direction: int, drift: float ) -> tuple[float, float]:
         """
         Calculates the constants that will be applied to the drivetrain's left
         and right motors to modify their power levels, so that they can drive
@@ -33,16 +33,16 @@ class wagon:
 
     def curve(
         self,
-        lSpeed:  float,
-        rSpeed:  float,
-        seconds: float = None
+        left_speed:  float,
+        right_speed: float,
+        seconds:     float = None
     ) -> None:
         """
         Spins both motors at different speeds. If a time is given, stops after
         the time has elapsed.
         """
-        self.__lDrive.spin( lSpeed * self.__lMod )
-        self.__rDrive.spin( rSpeed * self.__rMod )
+        self.__left_drive.spin( left_speed * self.__left_mod )
+        self.__right_drive.spin( right_speed * self.__right_mod )
         if seconds != None:
             pause( seconds )
             self.stop()
@@ -62,5 +62,5 @@ class wagon:
         self.curve( speed, -speed, seconds )
 
     def stop( self ) -> None:
-        self.__lDrive.stop()
-        self.__rDrive.stop()
+        self.__left_drive.stop()
+        self.__right_drive.stop()
