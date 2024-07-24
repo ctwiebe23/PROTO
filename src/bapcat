@@ -26,26 +26,25 @@
 # |                                                          |
 # ============================================================
 
-set -eu  # exit script on error / undefined variable
+set -eu    # exit script on error / undefined variable
+IFS=$'\n'
 
 [ ! "${#@}" = '2' ] && echo 'usage: bapcat <folder> <destination>' && exit 1
 [ ! -d "$1" ]       && echo "$1 is not a valid directory"          && exit 2
 [ -d "$2" ]         && echo "$2 is a directory, not a file"        && exit 3
 
-HOST="$(realpath "$2")"     # HOST file of the amalgamation
-cd "$1"                     # hunt down the constituents
-CONSTITUENTS=(              # CONSTITUENT files of the amalgamation
-  $(ls -1 \
-      | grep '.py$' \
-      | xargs 'realpath' \
-      | grep -v "^$HOST$")  # prevent a BAPCAT ouroboros
+HOST="$(realpath "$2")"               # HOST file of the amalgamation
+CONSTITUENTS=(                        # CONSTITUENT files of the amalgamation
+  $(find "$1" -name '*.py' -print0 \
+      | xargs -0 'realpath' \
+      | grep -v "^$HOST$")            # prevent a BAPCAT ouroboros
 )
 
 # vestigal interfile connections will eventually be purged from the HEAD of our
 # creation; prepare grep-compatable regex
 VESTIGAL=" $(basename "${CONSTITUENTS[0]}" | cut -d '.' -f 1) "
 
-for INDIVIDUAL in "${CONSTITUENTS[@]:2}"
+for INDIVIDUAL in "${CONSTITUENTS[@]:1}"
 do
   VESTIGAL+="\| $(basename "$INDIVIDUAL" | cut -d '.' -f 1) "
 done
