@@ -27,7 +27,7 @@
 # ============================================================
 
 set -eu    # exit script on error / undefined variable
-IFS=$'\n'
+IFS=$'\n'  # simplify internal field separator
 
 [ ! "${#@}" = '2' ] && echo 'usage: bapcat <folder> <destination>' && exit 1
 [ ! -d "$1" ]       && echo "$1 is not a valid directory"          && exit 2
