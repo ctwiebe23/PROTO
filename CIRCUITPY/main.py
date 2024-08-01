@@ -7,7 +7,7 @@ inc_button  = make.button( 1 )
 enter       = make.button( 2 )
 left_drive  = make.large_motor( 7 )
 right_drive = make.large_motor( 8 )
-robot       = make.wagon( left_drive, right_drive, drift = 0.9 )
+robot       = make.drivetrain( left_drive, right_drive, drift = 0.9 )
 grasp_motor = make.small_motor( 6 )
 
 # variable declaration

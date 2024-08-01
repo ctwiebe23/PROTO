@@ -1,27 +1,32 @@
 import board
 import pwmio
 import math
-from adafruit_motor import motor
-from functions import *
-from alpha import *
+from adafruit_motor import servo
+from a2_functions import *
+from a1_core import *
 
-__DC_PIN = {
-    7: (board.GP8,  board.GP9),
-    8: (board.GP10, board.GP11),
+__SERVO_PIN = {
+    3: (board.GP12, None),
+    4: (board.GP13, None),
+    5: (board.GP14, None),
+    6: (board.GP15, None),
 }
 
-class large_motor:
-    "A large motor plugged in to a large motor port."
+__SERVO_PIN.update(GROVE_PIN)
+
+class small_motor:
+    "A small motor plugged into a small motor port or GROVE port."
 
     def __init__( self, pinset: int, direction: int = 1 ):
-        forward   = pwmio.PWMOut( __DC_PIN[pinset][0], frequency = FRQ )
-        backward  = pwmio.PWMOut( __DC_PIN[pinset][1], frequency = FRQ )
-        self.__io = motor.DCMotor( forward, backward )
+        self.__io = servo.ContinuousServo( pwmio.PWMOut(
+            __SERVO_PIN[pinset][0],
+            frequency = FRQ
+        ))
         self.__direction = math.copysign( 1, direction )
 
     def spin( self, speed: float, seconds: float = None ) -> None:
         """
-        Spin the large motor at the given speed for the given time period; if
+        Spin the small motor at the given speed for the given time period; if
         no period is given then it spins until stopped.
         """
         speed = 100 if speed > 100 else -100 if speed < -100 else speed
@@ -31,5 +36,5 @@ class large_motor:
             self.stop()
 
     def stop( self ) -> None:
-        "Stops the large motor."
+        "Stops the small motor."
         self.spin( 0 )

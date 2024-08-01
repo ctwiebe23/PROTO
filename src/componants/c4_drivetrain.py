@@ -1,9 +1,9 @@
-from functions import *
-from small_motor import *
-from large_motor import *
+from a2_functions import *
+from c2_small_motor import *
+from c3_large_motor import *
 import math
 
-class wagon:
+class drivetrain:
     "A drivetrain made from 2 large or small motors."
 
     def __init__(
