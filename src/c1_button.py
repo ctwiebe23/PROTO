@@ -1,6 +1,6 @@
 import board
 import digitalio
-from a1_core import *
+from c0_core import *
 
 __BUTTON_PIN = {
     1: (board.GP20, None),

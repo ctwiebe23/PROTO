@@ -1,4 +1,3 @@
-from a2_functions import *
 from c2_small_motor import *
 from c3_large_motor import *
 import math
