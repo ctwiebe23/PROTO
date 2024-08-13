@@ -18,45 +18,45 @@ drive_speed = 75
 
 # demo functions
 def drive_forward():
-  robot.drive( drive_speed, drive_time )
+    robot.drive( drive_speed, drive_time )
 
 def drive_backward():
-  robot.drive( -drive_speed, drive_time )
+    robot.drive( -drive_speed, drive_time )
 
 def spin():
-  robot.turn( drive_speed, drive_time )
+    robot.turn( drive_speed, drive_time )
 
 def toggle_grasp():
-  global grasp_speed
-  grasp_motor.spin( grasp_speed, grasp_time )
-  grasp_speed *= -1
+    global grasp_speed
+    grasp_motor.spin( grasp_speed, grasp_time )
+    grasp_speed *= -1
 
 def demo():
-  drive_forward()
-  spin()
-  toggle_grasp()
-  toggle_grasp()
-  drive_backward()
+    drive_forward()
+    spin()
+    toggle_grasp()
+    toggle_grasp()
+    drive_backward()
 
 # demo selection
 selection = 0
 programs  = {
-  0: drive_forward,
-  1: drive_backward,
-  2: spin,
-  3: toggle_grasp,
-  4: demo,
+    0: drive_forward,
+    1: drive_backward,
+    2: spin,
+    3: toggle_grasp,
+    4: demo,
 }
 
 # main loop
 while True:
 
-  if inc_button.pressed():
-    selection += 1 if selection < 4 else 0
-    make.pause( 0.1 )
+    if inc_button.pressed():
+        selection += 1 if selection < 4 else 0
+        make.pause( 0.1 )
 
-  if enter.pressed():
-    programs[selection]()
-    selection = 0
+    if enter.pressed():
+        programs[selection]()
+        selection = 0
 
-  make.pause()
+    make.pause()

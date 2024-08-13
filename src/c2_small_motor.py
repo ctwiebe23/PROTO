@@ -2,7 +2,7 @@ import board
 import pwmio
 import math
 from adafruit_motor import servo
-from c0_core import *
+from c0_core import FRQ, GROVE_PIN, pause
 
 __SERVO_PIN = {
     3: (board.GP12, None),

@@ -1,6 +1,6 @@
 import board
 import digitalio
-from c0_core import *
+from c0_core import GROVE_PIN
 
 __BUTTON_PIN = {
     1: (board.GP20, None),

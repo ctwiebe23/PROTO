@@ -1,6 +1,7 @@
-from c2_small_motor import *
-from c3_large_motor import *
 import math
+from c0_core import pause
+from c2_small_motor import small_motor
+from c3_large_motor import large_motor
 
 class drivetrain:
     "A drivetrain made from 2 large or small motors."
@@ -61,5 +62,6 @@ class drivetrain:
         self.curve( speed, -speed, seconds )
 
     def stop( self ) -> None:
+        "Stops both motors."
         self.__left_drive.stop()
         self.__right_drive.stop()

@@ -2,7 +2,7 @@ import board
 import pwmio
 import math
 from adafruit_motor import motor
-from c0_core import *
+from c0_core import FRQ, pause
 
 __DC_PIN = {
     7: (board.GP8,  board.GP9),
