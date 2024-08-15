@@ -1,24 +1,28 @@
 import make
 
-stop = make.button(2)
+stop_button = make.button(port = 2)
 
-left_motor = make.large_motor(7)
-right_motor = make.large_motor(8, make.reversed)
+left_wheel = make.large_motor(port = 7)
+right_wheel = make.large_motor(port = 8, direction = make.reversed)
 
-arm = make.small_motor(6)
+arm = make.small_motor(port = 6)
 
-robot = make.drivetrain(left_motor, right_motor)
+robot = make.drivetrain(left_motor = left_wheel, right_motor = right_wheel)
 
-while not stop.pressed():
-    robot.curve(80, 100, 4)
-    
-    robot.drive(40, 2)
-    
-    robot.turn(60)
-    make.pause(1)
-    robot.stop()
-    
-    arm.spin(20, 1)
-    arm.spin(-20, 1)
-    
-    # go back to the start of the loop
+# drive in a curved line
+robot.curve(left_speed = 80, right_speed = 40, time = 3)
+
+# drive forward
+robot.drive(speed = 40, time = 2)
+
+# turn on the spot
+robot.turn(speed = 60, time = 1)
+
+# extend and retract the arm
+arm.spin(speed = 20, time = 1)
+arm.spin(speed = -20, time = 1)
+
+# spin slowly until turned off
+robot.turn(speed = 10)
+make.pause_until(stop_button.pressed)
+robot.stop()

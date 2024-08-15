@@ -10,7 +10,7 @@ reversed = -1
 FRQ = 50
 
 # general pins corresponding to GROVE ports
-GROVE_PIN = {
+GROVE_PORTS = {
     9:  (board.GP2,  board.GP3),
     10: (board.GP4,  board.GP5),
     11: (board.GP16, board.GP17),
@@ -25,7 +25,7 @@ def pause( seconds: float = 0.05 ) -> None:
     """
     time.sleep( seconds )
 
-def until( condition ) -> None:
+def pause_until( condition ) -> None:
     "Wait until the given condition is satisfied."
     while not condition():
         pause()

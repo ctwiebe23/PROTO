@@ -5,22 +5,32 @@
 ```python
 import make
 
-forward  = make.button( 1 )
-backward = make.button( 2 )
-motor    = make.small_motor( 3 )
+stop_button = make.button(port = 2)
 
-while True:  # loops forever
+left_wheel = make.large_motor(port = 7)
+right_wheel = make.large_motor(port = 8, direction = make.reversed)
 
-    if forward.pressed():
-        motor.spin( 100 )
+arm = make.small_motor(port = 6)
 
-    if backward.pressed():
-        motor.spin( -100 )
+robot = make.drivetrain(left_motor = left_wheel, right_motor = right_wheel)
 
-    if forward.pressed() and backward.pressed():
-        motor.stop()
+# drive in a curved line
+robot.curve(left_speed = 80, right_speed = 40, time = 3)
 
-    make.pause()  # pause briefly before looping
+# drive forward
+robot.drive(speed = 40, time = 2)
+
+# turn on the spot
+robot.turn(speed = 60, time = 1)
+
+# extend and retract the arm
+arm.spin(speed = 20, time = 1)
+arm.spin(speed = -20, time = 1)
+
+# spin slowly until turned off
+robot.turn(speed = 10)
+make.pause_until(stop_button.pressed)
+robot.stop()
 ```
 
 Start: [Start](../readme.md)
