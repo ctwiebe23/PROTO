@@ -3,6 +3,17 @@ from general.functions import wait
 from motion.smallmotor import smallmotor
 from motion.largemotor import largemotor
 
+def calc_mods( direction: int, drift: float ) -> tuple[float, float]:
+    """
+    Calculates the constants that will be applied to the drivetrain's left
+    and right motors to modify their power levels, so that they can drive
+    straight despite drift.
+    """
+    if drift < 1:
+        return (drift * direction, direction)
+    else:
+        return (direction, ( 1 / drift * direction ))
+
 class drivetrain:
     "A drivetrain made from 2 large or small motors."
 
@@ -11,25 +22,14 @@ class drivetrain:
         left_motor:  smallmotor | largemotor,
         right_motor: smallmotor | largemotor,
         direction:   int   = 1,
-        drift:       float = 1,
+        drift:       float = 1
     ):
         self.__left_motor  = left_motor
         self.__right_motor = right_motor
-        (self.__left_mod, self.__right_mod) = self.__calc_mods(
+        (self.__left_mod, self.__right_mod) = calc_mods(
             math.copysign( 1, direction ),
             drift
         )
-
-    def __calc_mods( direction: int, drift: float ) -> tuple[float, float]:
-        """
-        Calculates the constants that will be applied to the drivetrain's left
-        and right motors to modify their power levels, so that they can drive
-        straight despite drift.
-        """
-        if drift < 1:
-            return (drift * direction, direction)
-        else:
-            return (direction, ( 1 / drift * direction ) )
 
     def curve(
         self,

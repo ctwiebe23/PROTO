@@ -5,6 +5,8 @@
 - [ ] `distance_sensor`
   - [ ] `get_distance()`
 - [ ] LED / Speaker
+- [ ] Block Coding
+- [ ] Bound speed
 
 ## Documentation
 
@@ -20,4 +22,4 @@
 
 ## Long Term
 
-- [ ] Make platform/componant independant
+- [ ] Make platform/component independant
