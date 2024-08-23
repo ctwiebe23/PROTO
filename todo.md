@@ -4,10 +4,6 @@
 
 - [ ] `distance_sensor`
   - [ ] `get_distance()`
-- [x] `drivetrain`
-  - [x] optional constructors
-    - [x] make reversed
-    - [x] handle drift
 - [ ] LED / Speaker
 
 ## Documentation

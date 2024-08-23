@@ -1,15 +1,15 @@
 import math
-from c0_core import pause
-from c2_small_motor import small_motor
-from c3_large_motor import large_motor
+from general.functions import wait
+from motion.smallmotor import smallmotor
+from motion.largemotor import largemotor
 
 class drivetrain:
     "A drivetrain made from 2 large or small motors."
 
     def __init__(
         self,
-        left_motor:  small_motor | large_motor,
-        right_motor: small_motor | large_motor,
+        left_motor:  smallmotor | largemotor,
+        right_motor: smallmotor | largemotor,
         direction:   int   = 1,
         drift:       float = 1,
     ):
@@ -35,7 +35,7 @@ class drivetrain:
         self,
         left_speed:  float,
         right_speed: float,
-        time:        float = None
+        seconds:     float = None
     ) -> None:
         """
         Spins both motors at different speeds. If a time is given, stops after
@@ -43,23 +43,23 @@ class drivetrain:
         """
         self.__left_motor.spin( left_speed * self.__left_mod )
         self.__right_motor.spin( right_speed * self.__right_mod )
-        if time != None:
-            pause( time )
+        if seconds != None:
+            wait( seconds )
             self.stop()
 
-    def drive( self, speed: float, time: float = None ) -> None:
+    def drive( self, speed: float, seconds: float = None ) -> None:
         """
         Spins both motors at the same speed. If a time is given, stops after
         the time has elapsed.
         """
-        self.curve( speed, speed, time )
+        self.curve( speed, speed, seconds )
 
-    def turn( self, speed: float, time: float = None ) -> None:
+    def turn( self, speed: float, seconds: float = None ) -> None:
         """
         Rotates on the spot at the given speed. If a time is given, stops
         after that time has elapsed.
         """
-        self.curve( speed, -speed, time )
+        self.curve( speed, -speed, seconds )
 
     def stop( self ) -> None:
         "Stops both motors."

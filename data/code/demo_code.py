@@ -5,10 +5,10 @@ import lib.make as make
 # componant declaration
 inc_button  = make.button( 1 )
 enter       = make.button( 2 )
-left_drive  = make.large_motor( 7 )
-right_drive = make.large_motor( 8 )
+left_drive  = make.largemotor( 7 )
+right_drive = make.largemotor( 8 )
 robot       = make.drivetrain( left_drive, right_drive, drift = 0.9 )
-grasp_motor = make.small_motor( 6 )
+grasp_motor = make.smallmotor( 6 )
 
 # variable declaration
 grasp_time  = 1.7
@@ -53,10 +53,10 @@ while True:
 
     if inc_button.pressed():
         selection += 1 if selection < 4 else 0
-        make.pause( 0.1 )
+        make.wait( 0.1 )
 
     if enter.pressed():
         programs[selection]()
         selection = 0
 
-    make.pause()
+    make.wait()

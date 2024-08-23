@@ -1,9 +1,4 @@
-# Examples
-
-! example code !
-
-```python
-import make
+import lib.make as make
 
 # naming
 stopbutton = make.button(2)
@@ -21,8 +16,3 @@ make.wait(seconds=2)
 myrobot.turn(speed=-10)
 make.wait_until(stopbutton.pressed)
 myrobot.stop()
-```
-
-Start: [Start](../readme.md)
-| Previous: [Basics of Make](./make.md)
-| Next: [Advanced Topics](./advanced.md)
