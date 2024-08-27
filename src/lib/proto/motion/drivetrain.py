@@ -1,7 +1,6 @@
-import math
-from general.functions import wait
-from motion.smallmotor import smallmotor
-from motion.largemotor import largemotor
+from proto.general.functions import sig_int
+from proto.motion.smallmotor import smallmotor
+from proto.motion.largemotor import largemotor
 
 def calc_mods( direction: int, drift: float ) -> tuple[float, float]:
     """
@@ -19,33 +18,30 @@ class drivetrain:
 
     def __init__(
         self,
-        left_motor:  smallmotor | largemotor,
-        right_motor: smallmotor | largemotor,
-        direction:   int   = 1,
-        drift:       float = 1
+        left_motor:     smallmotor | largemotor,
+        right_motor:    smallmotor | largemotor,
+        direction:      int     = 1,
+        drift:          float   = 1,
     ):
-        self.__left_motor  = left_motor
-        self.__right_motor = right_motor
+        self.__left_motor   = left_motor
+        self.__right_motor  = right_motor
         (self.__left_mod, self.__right_mod) = calc_mods(
-            math.copysign( 1, direction ),
-            drift
+            sig_int( direction ),
+            drift,
         )
 
     def curve(
         self,
-        left_speed:  float,
-        right_speed: float,
-        seconds:     float = None
+        left_speed:     float,
+        right_speed:    float,
+        seconds:        float = None,
     ) -> None:
         """
         Spins both motors at different speeds. If a time is given, stops after
         the time has elapsed.
         """
-        self.__left_motor.spin( left_speed * self.__left_mod )
-        self.__right_motor.spin( right_speed * self.__right_mod )
-        if seconds != None:
-            wait( seconds )
-            self.stop()
+        self.__left_motor.spin( left_speed * self.__left_mod, seconds )
+        self.__right_motor.spin( right_speed * self.__right_mod, seconds )
 
     def drive( self, speed: float, seconds: float = None ) -> None:
         """

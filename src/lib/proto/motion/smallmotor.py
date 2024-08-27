@@ -1,9 +1,8 @@
 import board
 import pwmio
-import math
 from adafruit_motor import servo
-from general.constants import FRQ, GROVE_PORTS
-from general.functions import wait
+from proto.general.constants import FRQ, GROVE_PORTS
+from proto.general.functions import wait, sig_int
 
 SERVO_PORTS = {
     3: (board.GP12, None),
@@ -12,17 +11,19 @@ SERVO_PORTS = {
     6: (board.GP15, None),
 }
 
-SERVO_PORTS.update(GROVE_PORTS)
+SERVO_PORTS.update( GROVE_PORTS )
 
 class smallmotor:
     "A small motor plugged into a small motor port or GROVE port."
 
     def __init__( self, port: int, direction: int = 1 ):
-        self.__io = servo.ContinuousServo( pwmio.PWMOut(
-            SERVO_PORTS[port][0],
-            frequency = FRQ
-        ))
-        self.__direction = math.copysign( 1, direction )
+        self.__io = servo.ContinuousServo(
+            pwmio.PWMOut(
+                SERVO_PORTS[port][0],
+                frequency = FRQ,
+            )
+        )
+        self.__direction = sig_int( direction )
 
     def spin( self, speed: float, seconds: float = None ) -> None:
         """

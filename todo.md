@@ -7,8 +7,6 @@
 - [ ] LED / Speaker
 - [ ] Block Coding
 - [ ] Bound speed
-- [ ] Simplify time constraint within `drivetrain.curve`
-- [ ] `motion/constants.py` & `motion/functions.py`
 
 ## Documentation
 

@@ -1,13 +1,13 @@
 import board
 import digitalio
-from general.constants import GROVE_PORTS
+from proto.general.constants import GROVE_PORTS
 
 BUTTON_PORTS = {
     1: (board.GP20, None),
     2: (board.GP21, None),
 }
 
-BUTTON_PORTS.update(GROVE_PORTS)
+BUTTON_PORTS.update( GROVE_PORTS )
 
 class button:
     "A button, either built into the board or plugged into a GROVE port."

@@ -1,9 +1,8 @@
 import board
 import pwmio
-import math
 from adafruit_motor import motor
-from general.constants import FRQ
-from general.functions import wait
+from proto.general.constants import FRQ
+from proto.general.functions import wait, sig_int
 
 DC_PORTS = {
     7: (board.GP8,  board.GP9),
@@ -14,10 +13,10 @@ class largemotor:
     "A large motor plugged in to a large motor port."
 
     def __init__( self, port: int, direction: int = 1 ):
-        forward   = pwmio.PWMOut( DC_PORTS[port][0], frequency = FRQ )
-        backward  = pwmio.PWMOut( DC_PORTS[port][1], frequency = FRQ )
-        self.__io = motor.DCMotor( forward, backward )
-        self.__direction = math.copysign( 1, direction )
+        forward     = pwmio.PWMOut( DC_PORTS[port][0], frequency = FRQ )
+        backward    = pwmio.PWMOut( DC_PORTS[port][1], frequency = FRQ )
+        self.__io   = motor.DCMotor( forward, backward )
+        self.__direction = sig_int( direction )
 
     def spin( self, speed: float, seconds: float = None ) -> None:
         """
