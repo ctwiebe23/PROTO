@@ -2,12 +2,14 @@ import board
 import pwmio
 from adafruit_motor import motor
 from proto.general.constants import FRQ
-from proto.general.functions import wait, sig_int
+from proto.general.functions import wait, sig_int, bound_speed
 
 DC_PORTS = {
     7: (board.GP8,  board.GP9),
     8: (board.GP10, board.GP11),
 }
+
+DC_THROTTLE_RANGE = (0.3, 1)
 
 class largemotor:
     "A large motor plugged in to a large motor port."
@@ -23,8 +25,11 @@ class largemotor:
         Spin the large motor at the given speed for the given time period; if
         no period is given then it spins until stopped.
         """
-        speed = 100 if speed > 100 else -100 if speed < -100 else speed
-        self.__io.throttle = speed / 100 * self.__direction
+        self.__io.throttle = self.__direction * bound_speed(
+            speed,
+            DC_THROTTLE_RANGE,
+        )
+        
         if seconds != None:
             wait( seconds )
             self.stop()

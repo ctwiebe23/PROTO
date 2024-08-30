@@ -6,7 +6,9 @@
   - [ ] `get_distance()`
 - [ ] LED / Speaker
 - [ ] Block Coding
+  - [ ] Blocky
 - [ ] Bound speed
+  - [ ] Test for bounds
 
 ## Documentation
 
