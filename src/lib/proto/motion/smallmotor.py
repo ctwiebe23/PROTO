@@ -36,7 +36,7 @@ class smallmotor:
             speed,
             SERVO_THROTTLE_RANGE,
         )
-        
+
         if seconds != None:
             wait( seconds )
             self.stop()

@@ -25,9 +25,9 @@ def bound_speed( speed: float, interval: tuple[float, float] ) -> float:
     "Bounds the given speed between the given interval."
     if speed == 0:
         return 0
-    
+
     speed = clamp( -100, speed, 100 )
     range = interval[1] - ( offset := interval[0] )
     ratio = range / 100
-    
+
     return ( speed * ratio ) + ( offset * sig_int( speed ) )
