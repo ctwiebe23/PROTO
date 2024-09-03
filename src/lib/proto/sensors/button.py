@@ -16,13 +16,13 @@ class button:
         self.__io           = digitalio.DigitalInOut( BUTTON_PORTS[port][0] )
         self.__io.direction = digitalio.Direction.INPUT
         self.__io.pull      = digitalio.Pull.UP
-        
+
     def __enter__( self ):
         return self
-    
+
     def __exit__( self, exc_type, exc_value, exc_tb ):
         self.free_port()
-        
+
     def pressed( self ) -> bool:
         "Returns true if the button is pressed, false otherwise."
         return not self.__io.value

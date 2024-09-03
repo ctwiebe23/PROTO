@@ -26,7 +26,7 @@ class smallmotor:
             )
         )
         self.__direction = sig_int( direction )
-                
+
     def spin( self, speed: float, seconds: float = None ) -> None:
         """
         Spin the small motor at the given speed for the given time period; if
