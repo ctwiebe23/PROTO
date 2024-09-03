@@ -13,7 +13,7 @@ SERVO_PORTS = {
 
 SERVO_PORTS.update( GROVE_PORTS )
 
-SERVO_THROTTLE_RANGE = (0.3, 1)
+SERVO_THROTTLE_RANGE = (0.1, 1)
 
 class smallmotor:
     "A small motor plugged into a small motor port or GROVE port."
@@ -26,7 +26,7 @@ class smallmotor:
             )
         )
         self.__direction = sig_int( direction )
-
+                
     def spin( self, speed: float, seconds: float = None ) -> None:
         """
         Spin the small motor at the given speed for the given time period; if

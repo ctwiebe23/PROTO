@@ -29,7 +29,7 @@ class largemotor:
             speed,
             DC_THROTTLE_RANGE,
         )
-        
+
         if seconds != None:
             wait( seconds )
             self.stop()

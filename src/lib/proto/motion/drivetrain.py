@@ -1,4 +1,4 @@
-from proto.general.functions import sig_int
+from proto.general.functions import sig_int, wait
 from proto.motion.smallmotor import smallmotor
 from proto.motion.largemotor import largemotor
 
@@ -40,8 +40,12 @@ class drivetrain:
         Spins both motors at different speeds. If a time is given, stops after
         the time has elapsed.
         """
-        self.__left_motor.spin( left_speed * self.__left_mod, seconds )
-        self.__right_motor.spin( right_speed * self.__right_mod, seconds )
+        self.__left_motor.spin( left_speed * self.__left_mod )
+        self.__right_motor.spin( right_speed * self.__right_mod )
+
+        if seconds != None:
+            wait( seconds )
+            self.stop()
 
     def drive( self, speed: float, seconds: float = None ) -> None:
         """

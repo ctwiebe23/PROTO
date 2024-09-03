@@ -9,4 +9,7 @@ from proto.motion.drivetrain    import drivetrain
 from proto.sensors.button       import button
 
 # start-up script
-wait_until(button(1).pressed)
+with button( 1 ) as start_button:
+    wait_until( start_button.pressed )
+
+wait( 0.3 )
