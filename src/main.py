@@ -1,8 +1,8 @@
 from lib.make import *
 
-kissa   = button(1)
-kitty   = drivetrain(largemotor(7), largemotor(8))
-cat     = smallmotor(6)
+stop_button = button(1)
+robot       = drivetrain(largemotor(7), largemotor(8))
+arm         = smallmotor(6)
 
-cat.spin(1)
-wait_until(kissa.pressed)
+arm.spin(1)
+wait_until(stop_button.pressed)
