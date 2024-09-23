@@ -7,8 +7,8 @@
 - [ ] LED / Speaker
 - [ ] Block Coding
   - [ ] Blocky
-- [ ] Bound speed
-  - [ ] Test for bounds
+- [x] Bound speed
+  - [x] Test for bounds
 
 ## Documentation
 
