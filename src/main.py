@@ -1,10 +1,15 @@
-import lib.make as make
+from lib.make import *
 
-stop_button = make.button(1)
-robot       = make.drivetrain(make.largemotor(7), make.largemotor(8))
-arm         = make.smallmotor(6)
+stop    = button(2)
+robot   = drivetrain(largemotor(7), largemotor(8))
+arm     = smallmotor(6)
 
-arm.spin(speed=10)
-make.wait_until(stop_button.pressed)
+robot.drive(50, 2)
+robot.turn(75, 1)
+robot.drive(50, 2)
 
-robot.turn(speed=25, seconds=2)
+arm.spin(100, 1.7)
+arm.spin(-100, 1.7)
+
+robot.turn(25)
+wait_until(stop.pressed)
