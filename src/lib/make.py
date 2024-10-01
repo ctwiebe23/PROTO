@@ -7,6 +7,7 @@ from proto.motion.largemotor    import largemotor
 from proto.motion.drivetrain    import drivetrain
 
 from proto.sensors.button       import button
+from proto.sensors.sonar        import sonar
 
 # start-up script
 with button( 1 ) as start_button:
