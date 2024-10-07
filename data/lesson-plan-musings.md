@@ -75,6 +75,7 @@ myrobot.drive(speed=100, seconds=2)
 myrobot.turn(speed=-40, seconds=0.5)
 myrobot.curve(left_speed=90, right_speed=60, seconds=5)
 
+make.wait(seconds=2)
 myrobot.turn(speed=10)
 make.wait_until(stopbutton.pressed)
 
