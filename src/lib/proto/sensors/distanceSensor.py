@@ -8,12 +8,12 @@ class UltrasonicSensor:
     
     def __init__(self, trig_pin, echo_pin):
         # Set up the trigger pin (output)
-        self.trig = digitalio.DigitalInOut(trig_pin)
+        self.trig = digitalio.DigitalInOut(GP7)
         self.trig.direction = digitalio.Direction.OUTPUT
         self.trig.value = False
         
         # Set up the echo pin (input)
-        self.echo = digitalio.DigitalInOut(echo_pin)
+        self.echo = digitalio.DigitalInOut(GP28)
         self.echo.direction = digitalio.Direction.INPUT
 
     def get_distance(self):
@@ -51,8 +51,8 @@ class UltrasonicSensor:
 # Example usage:
 
 # Define pins for the ultrasonic sensor (adjust as needed)
-TRIG_PIN = board.GP18  # Replace with the correct pin for your microcontroller
-ECHO_PIN = board.GP19  # Replace with the correct pin for your microcontroller
+TRIG_PIN = board.GP7  # Replace with the correct pin for your microcontroller
+ECHO_PIN = board.GP28  # Replace with the correct pin for your microcontroller
 
 # Create an instance of the UltrasonicSensor
 ultrasonic = UltrasonicSensor(TRIG_PIN, ECHO_PIN)
