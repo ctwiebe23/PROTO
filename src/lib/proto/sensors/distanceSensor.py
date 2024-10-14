@@ -1,3 +1,3 @@
 import board
 import digitalio
-from 
+from proto.general.constants import GROVE_PORTS
