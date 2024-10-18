@@ -29,7 +29,7 @@ Actions:
 - `drivetrain.drive(power, seconds)`, `drivetrain.turn(power, seconds)`,
   `drivetrain.curve(left power, right power, seconds)`, `drivetrain.stop()`
 - `make.wait(seconds)` & `make.wait_until(button.pressed)`
-- `led_on(led_port)`, `led_off(led_port)`, & `led_blink(led_port, seconds)`
+- `led.on(seconds)` & `led.off()`
 
 ### Code Order
 
@@ -66,30 +66,22 @@ grabbyarm = make.smallmotor(6)
 leftmotor = make.largemotor(7)
 rightmotor = make.largemotor(8)
 myrobot = make.drivetrain(leftmotor, rightmotor)
+firstled = make.led(1)
+lastled = make.led(13)
 
 # Now you do all your actions
 grabbyarm.spin(power=70)
 make.wait_until(stopbutton.pressed)
 grabbyarm.stop()
 
-# Turn on some LEDs
-make.led_on(led_port=1)
-make.led_on(led_port=2)
-make.led_on(led_port=3)
+firstled.on()
 
 myrobot.drive(power=100, seconds=2)
 myrobot.turn(power=-40, seconds=0.5)
 myrobot.curve(left_power=90, right_power=60, seconds=5)
 
-# Turn off the LEDs
-make.led_off(led_port=1)
-make.led_off(led_port=2)
-make.led_off(led_port=3)
-
-# Blink an LED quickly, another for 2 seconds, and then another quickly
-make.led_blink(led_port=11)
-make.led_blink(led_port=12, seconds=2)
-make.led_blink(led_port=13)
+lastled.on(seconds=2)
+firstled.off()
 
 make.wait(seconds=2)
 myrobot.turn(power=10)
@@ -99,6 +91,8 @@ make.wait_until(stopbutton.pressed)
 # it finishes, and once the program reaches the end of the code everything
 # stops
 ```
+
+\newpage
 
 ### Common Loop Mistake
 

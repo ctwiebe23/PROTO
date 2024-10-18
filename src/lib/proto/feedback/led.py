@@ -18,29 +18,22 @@ LEDS = map( digitalio.DigitalInOut, [
     board.GP28,
 ] )
 
-def led_on( led_port: int ) -> None:
-    """
-    Turns the given LED on.
-    
-    LED ports: 1 - 13
-    """
-    LEDS[led_port - 1].value = True
-    
-def led_off( led_port: int ) -> None:
-    """
-    Turns the given LED off.
-    
-    LED ports: 1 - 13
-    """
-    LEDS[led_port - 1].value = False
+class led:
+    "An LED built into the board on LED ports 1-13"
 
-def led_blink( led_port: int, seconds: float = 0.15 ) -> None:
-    """
-    Lights up the LED at the given port for 0.15 seconds, unless a different
-    amount of seconds is specified.
+    def __init__( self, led_port: int ):
+        self.__io = LEDS[led_port - 1]
+        
+    def off( self ) -> None:
+        "Turns the LED off."
+        self.__io.value = False
     
-    LED ports: 1 - 13
-    """
-    led_on( led_port )
-    wait( seconds )
-    led_off( led_port )
+    def on( self, seconds: float = None ) -> None:
+        """
+        Turns the LED on, and if a number of seconds are given shuts it off
+        after that many seconds.
+        """
+        self.__io.value = True
+        if seconds != None:
+            wait( seconds )
+            self.off()
