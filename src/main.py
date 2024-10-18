@@ -32,23 +32,25 @@
 #
 # # motor demonstration
 
-import make
+import lib.make as make
 
 stop = make.button(port=2)
 left = make.largemotor(port=7, direction=1)
 right = make.largemotor(port=8, direction=1)
 arm = make.smallmotor(port=6, direction=-1)
 
+make.led_on(4)
+
 make.wait(seconds=2)
 if stop.pressed():
-  left.spin(speed=100)
-  right.spin(speed=100)
+  left.spin(power=100)
+  right.spin(power=100)
   make.wait(seconds=2)
   left.stop()
   right.stop()
 else:
-  left.spin(speed=100)
-  right.spin(speed=100)
+  left.spin(power=100)
+  right.spin(power=100)
   while not (stop.pressed()):
     pass
   left.stop()

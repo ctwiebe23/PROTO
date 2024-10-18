@@ -2,7 +2,7 @@ import board
 import pwmio
 from adafruit_motor import servo
 from proto.general.constants import FRQ, GROVE_PORTS
-from proto.general.functions import wait, sig_int, bound_speed
+from proto.general.functions import wait, sig_int, bound_power
 
 SERVO_PORTS = {
     3: (board.GP12, None),
@@ -27,13 +27,13 @@ class smallmotor:
         )
         self.__direction = sig_int( direction )
 
-    def spin( self, speed: float, seconds: float = None ) -> None:
+    def spin( self, power: float, seconds: float = None ) -> None:
         """
-        Spin the small motor at the given speed for the given time period; if
+        Spin the small motor at the given power for the given time period; if
         no period is given then it spins until stopped.
         """
-        self.__io.throttle = self.__direction * bound_speed(
-            speed,
+        self.__io.throttle = self.__direction * bound_power(
+            power,
             SERVO_THROTTLE_RANGE,
         )
 

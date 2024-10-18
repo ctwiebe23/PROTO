@@ -21,13 +21,13 @@ def clamp( min_bound: float, x: float, max_bound: float ) -> float:
     "Bounds the given number between the given minimium and maximium bounds."
     return max( min_bound, min( x, max_bound ) )
 
-def bound_speed( speed: float, interval: tuple[float, float] ) -> float:
-    "Bounds the given speed between the given interval."
-    if speed == 0:
+def bound_power( power: float, interval: tuple[float, float] ) -> float:
+    "Bounds the given power between the given interval."
+    if power == 0:
         return 0
 
-    speed = clamp( -100, speed, 100 )
+    power = clamp( -100, power, 100 )
     range = interval[1] - ( offset := interval[0] )
     ratio = range / 100
 
-    return ( speed * ratio ) + ( offset * sig_int( speed ) )
+    return ( power * ratio ) + ( offset * sig_int( power ) )

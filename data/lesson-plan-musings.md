@@ -25,10 +25,11 @@ make.action(values)
 Actions:
 
 - `button.pressed()`
-- `motor.spin(speed, seconds)` & `motor.stop()`
-- `drivetrain.drive(speed, seconds)`, `drivetrain.turn(speed, seconds)`,
-  `drivetrain.curve(left speed, right speed, seconds)`, `drivetrain.stop()`
+- `motor.spin(power, seconds)` & `motor.stop()`
+- `drivetrain.drive(power, seconds)`, `drivetrain.turn(power, seconds)`,
+  `drivetrain.curve(left power, right power, seconds)`, `drivetrain.stop()`
 - `make.wait(seconds)` & `make.wait_until(button.pressed)`
+- `led_on(led_port)`, `led_off(led_port)`, & `led_blink(led_port, seconds)`
 
 ### Code Order
 
@@ -67,16 +68,31 @@ rightmotor = make.largemotor(8)
 myrobot = make.drivetrain(leftmotor, rightmotor)
 
 # Now you do all your actions
-grabbyarm.spin(speed=70)
+grabbyarm.spin(power=70)
 make.wait_until(stopbutton.pressed)
 grabbyarm.stop()
 
-myrobot.drive(speed=100, seconds=2)
-myrobot.turn(speed=-40, seconds=0.5)
-myrobot.curve(left_speed=90, right_speed=60, seconds=5)
+# Turn on some LEDs
+make.led_on(led_port=1)
+make.led_on(led_port=2)
+make.led_on(led_port=3)
+
+myrobot.drive(power=100, seconds=2)
+myrobot.turn(power=-40, seconds=0.5)
+myrobot.curve(left_power=90, right_power=60, seconds=5)
+
+# Turn off the LEDs
+make.led_off(led_port=1)
+make.led_off(led_port=2)
+make.led_off(led_port=3)
+
+# Blink an LED quickly, another for 2 seconds, and then another quickly
+make.led_blink(led_port=11)
+make.led_blink(led_port=12, seconds=2)
+make.led_blink(led_port=13)
 
 make.wait(seconds=2)
-myrobot.turn(speed=10)
+myrobot.turn(power=10)
 make.wait_until(stopbutton.pressed)
 
 # Remember, code reads top to bottom! Each line won't run until the one above

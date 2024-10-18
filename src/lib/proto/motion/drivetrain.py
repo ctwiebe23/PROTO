@@ -32,34 +32,34 @@ class drivetrain:
 
     def curve(
         self,
-        left_speed:     float,
-        right_speed:    float,
+        left_power:     float,
+        right_power:    float,
         seconds:        float = None,
     ) -> None:
         """
-        Spins both motors at different speeds. If a time is given, stops after
+        Spins both motors at different powers. If a time is given, stops after
         the time has elapsed.
         """
-        self.__left_motor.spin( left_speed * self.__left_mod )
-        self.__right_motor.spin( right_speed * self.__right_mod )
+        self.__left_motor.spin( left_power * self.__left_mod )
+        self.__right_motor.spin( right_power * self.__right_mod )
 
         if seconds != None:
             wait( seconds )
             self.stop()
 
-    def drive( self, speed: float, seconds: float = None ) -> None:
+    def drive( self, power: float, seconds: float = None ) -> None:
         """
-        Spins both motors at the same speed. If a time is given, stops after
+        Spins both motors at the same power. If a time is given, stops after
         the time has elapsed.
         """
-        self.curve( speed, speed, seconds )
+        self.curve( power, power, seconds )
 
-    def turn( self, speed: float, seconds: float = None ) -> None:
+    def turn( self, power: float, seconds: float = None ) -> None:
         """
-        Rotates on the spot at the given speed. If a time is given, stops
+        Rotates on the spot at the given power. If a time is given, stops
         after that time has elapsed.
         """
-        self.curve( speed, -speed, seconds )
+        self.curve( power, -power, seconds )
 
     def stop( self ) -> None:
         "Stops both motors."
