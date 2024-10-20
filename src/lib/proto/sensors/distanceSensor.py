@@ -94,4 +94,5 @@ while True:
     print(f"Distance: {distance:.2f} cm")
     time.sleep(1)  # Measure distance every second
 
-LED(GP0) value = 1;
+LEDS(GP0).value = True
+
