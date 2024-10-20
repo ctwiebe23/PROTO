@@ -1,6 +1,10 @@
 import time
 import board
 import digitalio
+import neopixel
+import simpleio
+import pwmio
+from adafruit_motor import servo, motor
 
 # Initialize LEDs
 # LEDs placement on Maker Pi RP2040
