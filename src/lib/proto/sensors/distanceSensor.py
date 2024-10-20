@@ -71,24 +71,23 @@ class UltrasonicSensor:
         return distance_cm
 
 
-def light_up_leds(distance):
-    """Light up LEDs based on the distance measured by the ultrasonic sensor."""
-    # Number of LEDs to light up based on the distance
+def control_leds_by_distance(distance):
+    """Turn off LEDs based on the distance measured by the ultrasonic sensor."""
     # Assume distance between 5 cm and 20 cm
     if distance < 5:
         distance = 5  # Set a lower bound
     elif distance > 20:
         distance = 20  # Set an upper bound
 
-    # Map the distance to the number of LEDs (1 to 14 LEDs)
-    num_leds = int(((distance - 5) / 15) * len(LEDS))
+    # Map the distance to the number of LEDs to turn off (reverse logic)
+    num_leds_off = int(((distance - 5) / 15) * len(LEDS))
 
-    # Light up the calculated number of LEDs
+    # Turn off the calculated number of LEDs
     for i in range(len(LEDS)):
-        if i < num_leds:
-            LEDS[i].value = True  # Turn on the LED
-        else:
+        if i < num_leds_off:
             LEDS[i].value = False  # Turn off the LED
+        else:
+            LEDS[i].value = True  # Keep the LED on
 
 
 # Define pins for the ultrasonic sensor
@@ -98,11 +97,16 @@ ECHO_PIN = board.GP28  # Adjust the pin to your setup
 # Create an instance of the UltrasonicSensor
 ultrasonic = UltrasonicSensor(TRIG_PIN, ECHO_PIN)
 
+# Turn on all LEDs at the beginning
+for led in LEDS:
+    led.value = True
+
 # Loop to continuously measure distance and control LEDs
 while True:
     distance = ultrasonic.get_distance()
     print(f"Distance: {distance:.2f} cm")
-    light_up_leds(distance)
+    control_leds_by_distance(distance)
     time.sleep(0.5)  # Measure distance every 0.5 second
+
 
 
