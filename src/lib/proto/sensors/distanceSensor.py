@@ -1,11 +1,6 @@
 import time
 import board
 import digitalio
-import pulseio
-import neopixel
-import simpleio
-import pwmio
-from adafruit_motor 
 
 # Initialize LEDs
 # LEDs placement on Maker Pi RP2040
@@ -36,12 +31,12 @@ class UltrasonicSensor:
     
     def __init__(self, trig_pin, echo_pin):
         # Set up the trigger pin (output)
-        self.trig = digitalio.DigitalInOut(GP7)
+        self.trig = digitalio.DigitalInOut(trig_pin)
         self.trig.direction = digitalio.Direction.OUTPUT
         self.trig.value = False
         
         # Set up the echo pin (input)
-        self.echo = digitalio.DigitalInOut(GP28)
+        self.echo = digitalio.DigitalInOut(echo_pin)
         self.echo.direction = digitalio.Direction.INPUT
 
     def get_distance(self):
@@ -76,20 +71,38 @@ class UltrasonicSensor:
         return distance_cm
 
 
-# Example usage:
+def light_up_leds(distance):
+    """Light up LEDs based on the distance measured by the ultrasonic sensor."""
+    # Number of LEDs to light up based on the distance
+    # Assume distance between 5 cm and 20 cm
+    if distance < 5:
+        distance = 5  # Set a lower bound
+    elif distance > 20:
+        distance = 20  # Set an upper bound
 
-# Define pins for the ultrasonic sensor (adjust as needed)
-TRIG_PIN = board.GP7  # Replace with the correct pin for your microcontroller
-ECHO_PIN = board.GP28  # Replace with the correct pin for your microcontroller
+    # Map the distance to the number of LEDs (1 to 14 LEDs)
+    num_leds = int(((distance - 5) / 15) * len(LEDS))
+
+    # Light up the calculated number of LEDs
+    for i in range(len(LEDS)):
+        if i < num_leds:
+            LEDS[i].value = True  # Turn on the LED
+        else:
+            LEDS[i].value = False  # Turn off the LED
+
+
+# Define pins for the ultrasonic sensor
+TRIG_PIN = board.GP7  # Adjust the pin to your setup
+ECHO_PIN = board.GP28  # Adjust the pin to your setup
 
 # Create an instance of the UltrasonicSensor
 ultrasonic = UltrasonicSensor(TRIG_PIN, ECHO_PIN)
 
-# Loop to continuously measure distance
+# Loop to continuously measure distance and control LEDs
 while True:
     distance = ultrasonic.get_distance()
     print(f"Distance: {distance:.2f} cm")
-    time.sleep(1)  # Measure distance every second
+    light_up_leds(distance)
+    time.sleep(0.5)  # Measure distance every 0.5 second
 
-LEDS_PINS(board.GP0).value = True
 
