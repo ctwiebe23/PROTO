@@ -2,6 +2,37 @@ import time
 import board
 import digitalio
 import pulseio
+import neopixel
+import simpleio
+import pwmio
+from adafruit_motor 
+
+# Initialize LEDs
+# LEDs placement on Maker Pi RP2040
+LED_PINS = [board.GP0,
+            board.GP1,
+            board.GP2,
+            board.GP3,
+            board.GP4,
+            board.GP5,
+            board.GP6,
+            board.GP7,
+            board.GP16,
+            board.GP17,
+            board.GP26,
+            board.GP27,
+            board.GP28]
+
+LEDS = []
+for pin in LED_PINS:
+    # Set pins as digital output
+    digout = digitalio.DigitalInOut(pin)
+    digout.direction = digitalio.Direction.OUTPUT
+    LEDS.append(digout)
+
+# Initialize Neopixel RGB LEDs
+pixels = neopixel.NeoPixel(board.GP18, 2)
+pixels.fill(0)
 
 class UltrasonicSensor:
     """A class to manage an ultrasonic sensor like the HC-SR04."""
