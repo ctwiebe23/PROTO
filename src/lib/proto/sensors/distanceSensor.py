@@ -39,10 +39,6 @@ for pin in LED_PINS:
 for i in range(len(LEDS)):
     LEDS[i].value = True
 
-    if i < len(MELODY_NOTE):
-        # Play melody tones
-        simpleio.tone(PIEZO_PIN, MELODY_NOTE[i], duration=MELODY_DURATION[i])
-    else:
         # Light up the remainding LEDs
         time.sleep(0.15)
 
