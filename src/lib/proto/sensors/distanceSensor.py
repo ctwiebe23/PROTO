@@ -30,9 +30,6 @@ for pin in LED_PINS:
     digout.direction = digitalio.Direction.OUTPUT
     LEDS.append(digout)
 
-# Initialize Neopixel RGB LEDs
-pixels = neopixel.NeoPixel(board.GP18, 2)
-pixels.fill(0)
 
 class UltrasonicSensor:
     """A class to manage an ultrasonic sensor like the HC-SR04."""
@@ -94,5 +91,5 @@ while True:
     print(f"Distance: {distance:.2f} cm")
     time.sleep(1)  # Measure distance every second
 
-LEDS(GP0).value = True
+LEDS(board.GP0).value = True
 
