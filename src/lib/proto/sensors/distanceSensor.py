@@ -91,5 +91,5 @@ while True:
     print(f"Distance: {distance:.2f} cm")
     time.sleep(1)  # Measure distance every second
 
-LEDS(board.GP0).value = True
+LEDS_PINS(board.GP0).value = True
 
