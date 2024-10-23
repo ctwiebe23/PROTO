@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ctw 2024.10.22
-# produces a .PDF from a .MD using pandoc
+# produces a .PDF, a .DOCX, and a .HTML from a .MD using pandoc
 
 [ "${#@}" = 0 ]         && echo 'ERROR: no target file given' && exit 1
 [ ! -f "$1" ]           && echo "ERROR: could not find $1"    && exit 2
@@ -35,5 +35,7 @@ done
 
 # produce the PDF
 pandoc -so "$1.pdf" "$1" "${METADATA[@]}"
+pandoc -so "$1.html" "$1" "${METADATA[@]}"
+pandoc -so "$1.docx" "$1" "${METADATA[@]}"
 
 exit 0
