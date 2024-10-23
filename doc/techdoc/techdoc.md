@@ -71,7 +71,7 @@ drive. Copy the contents of the `src/lib` directory from the MAKE
 MakerPi. This is also the same method by which code will be uploaded to the
 MakerPi by students; their final program should be saved to a file named
 `main.py` or `code.py` and then copied into the root of the MakerPi (*not*
-inside `./lib`) via microUSB.
+inside `lib`) via microUSB.
 
 ## PROGRAM STRUCTURE
 
