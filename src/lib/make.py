@@ -14,5 +14,3 @@ from proto.feedback.led         import led
 # start-up script
 with button( 1 ) as start_button:
     wait_until( start_button.pressed )
-
-wait( 0.3 )
