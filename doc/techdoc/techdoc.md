@@ -251,8 +251,8 @@ This code will
 1. Import make
 2. Name the components
 3. Check if the stop button is pressed
-4. Spin the motor
-5. Pause
+4. Pause
+5. Spin the motor
 6. And *then* check if the button is pressed again before looping
 
 The button is not checked while the motor is running or while the program is
