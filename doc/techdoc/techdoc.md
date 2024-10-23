@@ -1,11 +1,10 @@
 ---
-title: MAKE
+title: MAKE Technical Documentation
 author: Carston Wiebe
 date: 2024.10.22
 abstract: |
-  \vspace{\fill}
   MAKE is a Python-based embedded systems library designed for University of
-  Nebraska-Lincoln's PROTO resident student organization. It is mostly a
+  Nebraska-Lincoln's PROTO recognized student organization. It is mostly a
   wrapper around the CIRCUITPython library that provides methods and objects
   that simplify CIRCUITPython so that it can be easily taught to elementary and
   middle school students.
