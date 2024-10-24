@@ -5,6 +5,8 @@ import simpleio
 import time
 import pwmio
 from adafruit_motor import servo, motor
+import make
+
 
 # Initialize LEDs
 # LEDs placement on Maker Pi RP2040
