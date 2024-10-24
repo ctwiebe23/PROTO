@@ -35,7 +35,5 @@ done
 
 # produce the PDF
 pandoc -so "$1.pdf" "$1" "${METADATA[@]}"
-pandoc -so "$1.html" "$1" "${METADATA[@]}"
-pandoc -so "$1.docx" "$1" "${METADATA[@]}"
 
 exit 0
