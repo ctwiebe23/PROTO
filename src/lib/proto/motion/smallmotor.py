@@ -5,10 +5,10 @@ from proto.general.constants import FRQ, GROVE_PORTS
 from proto.general.functions import wait, sig_int, bound_power
 
 SERVO_PORTS = {
-    3: (board.GP12, None),
-    4: (board.GP13, None),
-    5: (board.GP14, None),
-    6: (board.GP15, None),
+    10: (board.GP12, None),
+    11: (board.GP13, None),
+    12: (board.GP14, None),
+    13: (board.GP15, None),
 }
 
 SERVO_PORTS.update( GROVE_PORTS )

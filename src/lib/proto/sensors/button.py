@@ -3,8 +3,8 @@ import digitalio
 from proto.general.constants import GROVE_PORTS
 
 BUTTON_PORTS = {
-    1: (board.GP20, None),
-    2: (board.GP21, None),
+    8: (board.GP20, None),
+    9: (board.GP21, None),
 }
 
 BUTTON_PORTS.update( GROVE_PORTS )

@@ -5,8 +5,8 @@ from proto.general.constants import FRQ
 from proto.general.functions import wait, sig_int, bound_power
 
 DC_PORTS = {
-    7: (board.GP8,  board.GP9),
-    8: (board.GP10, board.GP11),
+    6: (board.GP8,  board.GP9),
+    7: (board.GP10, board.GP11),
 }
 
 DC_THROTTLE_RANGE = (0.3, 1)

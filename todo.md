@@ -4,16 +4,13 @@
 
 - [ ] `distance_sensor`
   - [ ] `get_distance()`
-- [ ] LED / Speaker
-- [ ] Block Coding
-  - [ ] Blocky
-- [x] Bound speed
-  - [x] Test for bounds
+- [ ] Speaker
+- [x] Block Coding
+  - [x] Blocky
 
 ## Documentation
 
 - [ ] techdoc
-  - [x] finish translating markdown to latex
 - [ ] pages (markdown in `./doc/`)
   - [ ] advanced
   - [ ] examples

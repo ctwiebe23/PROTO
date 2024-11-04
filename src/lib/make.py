@@ -7,10 +7,7 @@ from proto.motion.largemotor    import largemotor
 from proto.motion.drivetrain    import drivetrain
 
 from proto.sensors.button       import button
-from proto.sensors.sonar        import sonar
-
-from proto.feedback.led         import led
 
 # start-up script
-with button( 1 ) as start_button:
+with button( 8 ) as start_button:
     wait_until( start_button.pressed )
