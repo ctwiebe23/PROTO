@@ -35,5 +35,7 @@ done
 
 # produce the PDF
 pandoc -so "$1.pdf" "$1" "${METADATA[@]}" --highlight-style="tango"
+pandoc -so "$1.html" "$1" "${METADATA[@]}" --highlight-style="tango"
+pandoc -so "$1.docx" "$1" "${METADATA[@]}" --highlight-style="tango"
 
 exit 0
