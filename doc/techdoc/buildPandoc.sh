@@ -7,8 +7,8 @@
 [ ! -f "$1" ]           && echo "ERROR: could not find $1"    && exit 2
 [[ ! "$1" =~ .+'.md' ]] && echo "ERROR: $1 not markdown file" && exit 3
 
-XMARGIN='1.5in'
-YMARGIN='1.25in'
+XMARGIN='1in'
+YMARGIN='1in'
 
 METADATA=(
     # article, scrartcl
@@ -34,6 +34,6 @@ do METADATA["$i"]="--metadata=${METADATA[$i]}"
 done
 
 # produce the PDF
-pandoc -so "$1.pdf" "$1" "${METADATA[@]}"
+pandoc -so "$1.pdf" "$1" "${METADATA[@]}" --highlight-style="tango"
 
 exit 0

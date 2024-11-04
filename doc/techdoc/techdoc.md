@@ -110,8 +110,6 @@ Note that all function arguments (the values within the parenthesis after
 actions) do not have to be named; `make.button(port=1)` and `make.button(1)`
 are identical statements.
 
-\newpage
-
 ### ORPHANED FUNCTIONS & VARIABLES
 
 The following functions and variables do not belong to any class.
@@ -137,8 +135,8 @@ make.reversed
 
 ### BUTTONS
 
-`button`s can be made on ports one and two (the built in buttons) and ports
-nine through 13 (the GROVE ports).
+`button`s can be made on ports eight and nine (the built in buttons) and ports
+one through five (the GROVE ports).
 
 ```python
 b = make.button(port)
@@ -149,8 +147,8 @@ b.pressed()
 
 ### MOTORS
 
-`smallmotor`s can be made on ports three through six and `largemotor`s can be
-made on ports seven and eight.
+`smallmotor`s can be made on ports one through five (the GROVE ports) and
+`largemotor`s can be made on ports six and seven.
 
 The following actions are the same for both `smallmotor`s and `largemotor`s.
 
@@ -219,8 +217,8 @@ import make
 
 ________ = make.button(port=_)
 ________ = make.smallmotor(port=_)
-left = make.largemotor(port=7)
-right = make.largemotor(port=8)
+left = make.largemotor(port=6)
+right = make.largemotor(port=7)
 ________ = make.drivetrain(left, right)
 
 # make your actions...
@@ -233,8 +231,8 @@ Demonstration of a common mistake when using MAKE.
 ```python
 import make
 
-stopbutton = make.button(2)
-motor = make.smallmotor(3)
+stopbutton = make.button(9)
+motor = make.smallmotor(1)
 
 while not stopbutton.pressed():
   make.wait(1)
