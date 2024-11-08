@@ -1,5 +1,12 @@
-import make
+import lib.make as make
 
-motor = make.largemotor(port=6)
+button = make.button( port=9 )
+motor = make.largemotor( port=6 )
 
-motor.spin(power=50, seconds=5)
+if button.pressed():
+  motor.spin( power=100 )
+  make.wait( seconds=1 )
+  while not button.pressed():
+    make.wait()
+else:
+  motor.spin( power=100, seconds=5 )
