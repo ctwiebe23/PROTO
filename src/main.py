@@ -1,5 +1,5 @@
-import lib.make as make
+import make
 
-motor = make.largemotor(6)
+motor = make.largemotor(port=6)
 
-motor.spin(50, 5)
+motor.spin(power=50, seconds=5)
