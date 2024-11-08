@@ -1,7 +1,5 @@
 import lib.make as make
 
-motor = make.smallmotor(1)
+motor = make.largemotor(6)
 
-motor.spin(100)
-while True:
-  pass
+motor.spin(50, 5)
