@@ -11,3 +11,4 @@ from proto.sensors.button       import button
 # start-up script
 with button( 8 ) as start_button:
     wait_until( start_button.pressed )
+    wait( 1 )
