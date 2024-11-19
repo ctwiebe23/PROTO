@@ -1,8 +1,8 @@
 import board
 import pwmio
-from adafruit_motor import motor
-from proto.general.constants import FRQ
-from proto.general.functions import wait, sig_int, bound_power
+from adafruit_motor             import motor
+from proto.general.constants    import FRQ
+from proto.general.functions    import wait, sig_int, bound_power
 
 DC_PORTS = {
     6: (board.GP8,  board.GP9),

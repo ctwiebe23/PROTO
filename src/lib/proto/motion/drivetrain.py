@@ -1,6 +1,6 @@
-from proto.general.functions import sig_int, wait
-from proto.motion.smallmotor import smallmotor
-from proto.motion.largemotor import largemotor
+from proto.general.functions    import sig_int, wait
+from proto.motion.smallmotor    import smallmotor
+from proto.motion.largemotor    import largemotor
 
 def calc_mods( direction: int, drift: float ) -> tuple[float, float]:
     """

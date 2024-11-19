@@ -1,5 +1,5 @@
-from math import copysign
-from time import sleep
+from math   import copysign
+from time   import sleep
 
 def wait( seconds: float = 0.05 ) -> None:
     """

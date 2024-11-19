@@ -1,6 +1,6 @@
 import board
 import digitalio
-from proto.general.constants import GROVE_PORTS
+from proto.general.constants    import GROVE_PORTS
 
 BUTTON_PORTS = {
     8: (board.GP20, None),

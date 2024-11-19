@@ -1,7 +1,5 @@
 import board
-
-# public constant for reversing servos and dc motors
-reversed = -1
+from proto.schemata.system_schema   import PROTO_DEV_V1
 
 # motor frequency
 FRQ = 50

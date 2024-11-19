@@ -1,8 +1,8 @@
 import board
 import pwmio
-from adafruit_motor import servo
-from proto.general.constants import FRQ, GROVE_PORTS
-from proto.general.functions import wait, sig_int, bound_power
+from adafruit_motor             import servo
+from proto.general.constants    import FRQ, GROVE_PORTS
+from proto.general.functions    import wait, sig_int, bound_power
 
 SERVO_PORTS = {
     10: (board.GP12, None),
