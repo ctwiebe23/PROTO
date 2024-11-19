@@ -1,6 +1,6 @@
-from proto.schemata.board_schema    import board_schema,    MAKERPI_RP2040
-from proto.schemata.cservo_schema   import cservo_schema,   FS90R
-from proto.schemata.dc_schema       import dc_schema,       EE_YELLOW
+from proto.schemata.board_schema    import board_schema, MAKERPI_RP2040
+from proto.schemata.cservo_schema   import cservo_schema, FS90R
+from proto.schemata.dc_schema       import dc_schema, EE_YELLOW
 
 class system_schema:
     """
