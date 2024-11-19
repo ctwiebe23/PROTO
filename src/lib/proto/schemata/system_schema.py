@@ -9,9 +9,9 @@ class system_schema:
     
     def __init__(
         self,
-        board:  board_schema,
-        cservo: cservo_schema,
-        dc:     dc_schema,
+        board:  board_schema    = None,
+        cservo: cservo_schema   = None,
+        dc:     dc_schema       = None,
     ):
         self.BOARD  = board
         self.CSERVO = cservo
