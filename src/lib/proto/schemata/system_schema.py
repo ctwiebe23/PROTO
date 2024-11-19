@@ -4,7 +4,8 @@ from proto.schemata.dc_schema       import dc_schema, EE_YELLOW
 
 class system_schema:
     """
-    A system schema that details the components used in the kit as a whole.
+    A system schema that details the components used in the system as a whole;
+    a 'top-level' schema.
     """
     
     def __init__(
