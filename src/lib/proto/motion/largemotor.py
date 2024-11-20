@@ -8,11 +8,11 @@ class largemotor:
 
     def __init__( self, port: int, direction: int = 1 ):
         forward     = pwmio.PWMOut(
-            SYSTEM.BOARD.PINSETS[port][0],
+            SYSTEM.BOARD.PORTS[port][0],
             frequency = SYSTEM.DC.FREQUENCY
         )
         backward    = pwmio.PWMOut(
-            SYSTEM.BOARD.PINSETS[port][1],
+            SYSTEM.BOARD.PORTS[port][1],
             frequency = SYSTEM.DC.FREQUENCY
         )
         self.__io   = motor.DCMotor( forward, backward )

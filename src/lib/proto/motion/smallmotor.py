@@ -9,7 +9,7 @@ class smallmotor:
     def __init__( self, port: int, direction: int = 1 ):
         self.__io = servo.ContinuousServo(
             pwmio.PWMOut(
-                SYSTEM.BOARD.PINSETS[port][0],
+                SYSTEM.BOARD.PORTS[port][0],
                 frequency = SYSTEM.CSERVO.FREQUENCY,
             )
         )

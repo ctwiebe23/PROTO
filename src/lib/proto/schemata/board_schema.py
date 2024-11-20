@@ -2,25 +2,25 @@ import board
 
 class board_schema:
     """
-    A board schema that details available ports.  A pinset is a pair of pins
+    A board schema that details available ports.  A port is a pair of pins
     or single pin (represented by a tuple of size 2) that corresponds to a
-    numbered port -- thus, the `pinsets` argument should be a dict of tuples.
+    numbered port -- thus, the `ports` argument should be a dict of tuples.
     
-    The pinsets should be set up so the left-most element of the tuple is
+    The ports should be set up so the left-most element of the tuple is
     always defined, while the second element is only for components (such as
     DCs) that require two pins be grouped in the same 'port' -- for buttons
     and servos, only the first pin in the set will be used.
     """
 
-    def __init__( self, pinsets: dict[int, tuple[any,any]] ):
-        self.PINSETS = pinsets
+    def __init__( self, ports: dict[int, tuple[any,any]] ):
+        self.PORTS = ports
 
 #=============================================================================#
 # PRESETS
 #=============================================================================#
 
 MAKERPI_RP2040: board_schema = board_schema(
-    pinsets={
+    ports={
         1:  (board.GP2, board.GP3),
         2:  (board.GP4, board.GP5),
         3:  (board.GP16,board.GP17),

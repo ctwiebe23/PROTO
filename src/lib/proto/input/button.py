@@ -6,7 +6,7 @@ class button:
     "A button, either built into the board or plugged into a GROVE port."
 
     def __init__( self, port: int ):
-        self.__pin  = SYSTEM.BOARD.PINSETS[port][0]
+        self.__pin  = SYSTEM.BOARD.PORTS[port][0]
         self.__io   = digitalio.DigitalInOut( self.__pin )
         self.__io.direction = digitalio.Direction.INPUT
         self.__io.pull      = digitalio.Pull.UP
