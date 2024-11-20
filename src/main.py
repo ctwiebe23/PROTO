@@ -9,7 +9,7 @@ up = make.button(8)
 down = make.button(9)
 
 while True:
-    d.turn(1)
+    d.drive(100)
     down.wait_until_pressed()
     d.stop()
     down.wait_until_pressed()
