@@ -1,4 +1,3 @@
-import board
 import digitalio
 from proto.general.constants    import SYSTEM
 from proto.general.functions    import wait_until

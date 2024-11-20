@@ -1,8 +1,7 @@
-import board
 import pwmio
 from adafruit_motor             import motor
 from proto.general.constants    import SYSTEM
-from proto.general.functions    import wait, sig_int, bound_power
+from proto.general.functions    import wait, sig_int
 
 class largemotor:
     "A large motor plugged in to a large motor port."

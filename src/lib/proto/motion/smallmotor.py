@@ -1,8 +1,7 @@
-import board
 import pwmio
 from adafruit_motor             import servo
 from proto.general.constants    import SYSTEM
-from proto.general.functions    import wait, sig_int, bound_power
+from proto.general.functions    import wait, sig_int
 
 class smallmotor:
     "A small motor plugged into a small motor port or GROVE port."
