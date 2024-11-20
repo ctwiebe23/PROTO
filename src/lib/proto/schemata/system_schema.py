@@ -1,6 +1,6 @@
-from proto.schemata.board_schema    import board_schema, MAKERPI_RP2040
-from proto.schemata.cservo_schema   import cservo_schema, FS90R
-from proto.schemata.dc_schema       import dc_schema, EE_YELLOW
+from proto.schemata.board_schema    import board_schema
+from proto.schemata.cservo_schema   import cservo_schema
+from proto.schemata.dc_schema       import dc_schema
 
 class system_schema:
     """
@@ -17,13 +17,3 @@ class system_schema:
         self.BOARD  = board
         self.CSERVO = cservo
         self.DC     = dc
-
-#=============================================================================#
-# PRESETS
-#=============================================================================#
-
-PROTO_DEV_V1: system_schema = system_schema(
-    board=MAKERPI_RP2040,
-    cservo=FS90R,
-    dc=EE_YELLOW,
-)
