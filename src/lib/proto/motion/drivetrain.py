@@ -25,7 +25,7 @@ class drivetrain:
     ):
         self.__left_motor   = left_motor
         self.__right_motor  = right_motor
-        (self.__left_mod, self.__right_mod) = calc_mods(
+        (self.__left_mod,self.__right_mod)  = calc_mods(
             sig_int( direction ),
             drift,
         )
