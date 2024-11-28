@@ -1,5 +1,5 @@
 # exports
-from proto.general.functions    import wait
+from proto.general.functions    import wait, wait_until
 
 from proto.motion.smallmotor    import smallmotor
 from proto.motion.largemotor    import largemotor
