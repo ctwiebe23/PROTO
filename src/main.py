@@ -13,8 +13,8 @@ button2 = make.button( port=9 )
 
 # make actions using your robot
 while True:
-    robot.drive( power=100 )        # no time given -- spins forever!
-    button2.wait_until_pressed()    # motor still spins while the bot's waiting
-    robot.stop()                    # stops the motor no matter what
-    button2.wait_until_pressed()    # stays stopped while the bot's waiting
+    robot.drive( power=100 )            # no time given -- spins forever!
+    make.wait_until( button2.pressed )  # motor still spins while code waits
+    robot.stop()                        # stops the motor no matter what
+    make.wait_until( button2.pressed )  # stays stopped while the bot's waiting
     # loops back to the `while True`

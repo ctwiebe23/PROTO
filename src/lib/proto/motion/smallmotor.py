@@ -1,6 +1,6 @@
 import pwmio
 from adafruit_motor             import servo
-from proto.general.constants    import SYSTEM
+from proto.general.system_specs import SYSTEM
 from proto.general.functions    import wait, sig_int
 
 class smallmotor:
@@ -9,8 +9,8 @@ class smallmotor:
     def __init__( self, port: int, direction: int = 1 ):
         self.__io = servo.ContinuousServo(
             pwmio.PWMOut(
-                SYSTEM.BOARD.PORTS[port][0],
-                frequency = SYSTEM.CSERVO.FREQUENCY,
+                SYSTEM.board.ports[port].pin1,
+                frequency=SYSTEM.cservo.frequency,
             )
         )
         self.__direction = sig_int( direction )
@@ -21,7 +21,7 @@ class smallmotor:
         no period is given then it spins until stopped.
         """
         self.__io.throttle  = self.__direction \
-                            * SYSTEM.CSERVO.POWER_SCALER( power )
+                            * SYSTEM.cservo.power_scaler( power )
 
         if seconds != None:
             wait( seconds )

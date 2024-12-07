@@ -12,8 +12,8 @@ class cservo_schema:
     """
     
     def __init__( self, frequency: int, power_scaler ):
-        self.FREQUENCY      = frequency
-        self.POWER_SCALER   = power_scaler
+        self.frequency      = frequency
+        self.power_scaler   = power_scaler
 
 #=============================================================================#
 # PRESETS

@@ -13,6 +13,10 @@ def wait_until( condition ) -> None:
     while not condition():
         wait()
 
+def wait_while( condition ) -> None:
+    "Wait while the given condition (type: () -> bool) is satisfied."
+    wait_until( lambda : not condition() )
+
 def sig_int( number: float ) -> int:
     "Returns the sign of the given number; either 1 or -1."
     return copysign( 1, number )

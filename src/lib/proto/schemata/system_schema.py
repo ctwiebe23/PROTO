@@ -14,6 +14,6 @@ class system_schema:
         cservo: cservo_schema   = None,
         dc:     dc_schema       = None,
     ):
-        self.BOARD  = board
-        self.CSERVO = cservo
-        self.DC     = dc
+        self.board  = board
+        self.cservo = cservo
+        self.dc     = dc
