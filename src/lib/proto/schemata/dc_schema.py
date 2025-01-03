@@ -20,5 +20,5 @@ class dc_schema:
 
 EE_YELLOW: dc_schema = dc_schema(
     frequency=50,
-    power_scaler=lambda power : bound_power(power, (0.3,1)),
+    power_scaler=lambda power : bound_power( power, (0.3,1) ),
 )

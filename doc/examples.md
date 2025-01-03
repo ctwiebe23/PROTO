@@ -3,24 +3,26 @@
 ! example code !
 
 ```python
-import make
+import lib.make as make
 
-# naming
-stopbutton = make.button(2)
-leftwheel = make.largemotor(7)
-rightwheel = make.largemotor(8)
-myrobot = make.drivetrain(leftwheel, rightwheel)
+# name the drive motors
+left    = make.smallmotor( port=11 )
+right   = make.smallmotor( port=13, direction=-1 )  # this motor's facing the
+                                                    #  opposite direction
+# name the robot, using the motors
+robot   = make.drivetrain( left_motor=left, right_motor=right )
 
-# actions
-myrobot.drive(speed=40, seconds=4)
-myrobot.turn(speed=30, seconds=0.5)
-myrobot.curve(left_speed=60, right_speed=90, seconds=2.5)
+# name the buttons
+button1 = make.button( port=8 )
+button2 = make.button( port=9 )
 
-# code is read top to bottom
-make.wait(seconds=2)
-myrobot.turn(speed=-10)
-make.wait_until(stopbutton.pressed)
-myrobot.stop()
+# make actions using your robot
+while True:
+    robot.drive( power=100 )            # no time given -- spins forever!
+    make.wait_until( button2.pressed )  # motor still spins while code waits
+    robot.stop()                        # stops the motor no matter what
+    make.wait_until( button2.pressed )  # stays stopped while the bot's waiting
+    # loops back to the `while True`
 ```
 
 Start: [Start](../readme.md)

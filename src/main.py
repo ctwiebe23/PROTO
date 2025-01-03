@@ -1,20 +1,22 @@
 import lib.make as make
+import board
+import pulseio
 
-# name the drive motors
-left    = make.smallmotor( port=11 )
-right   = make.smallmotor( port=13, direction=-1 )  # this motor's facing the
-                                                    #  opposite direction
-# name the robot, using the motors
-robot   = make.drivetrain( left_motor=left, right_motor=right )
+motor = make.largemotor(6)
+debug = make.largemotor(7)
+button = make.button(8)
+pulses = pulseio.PulseIn(board.GP27, maxlen=200, idle_state=True)
 
-# name the buttons
-button1 = make.button( port=8 )
-button2 = make.button( port=9 )
+pulses.pause()
+if len(pulses) == 0:
+    motor.spin(100, 3)
+pulses.resume()
 
-# make actions using your robot
+make.wait()
+
 while True:
-    robot.drive( power=100 )            # no time given -- spins forever!
-    make.wait_until( button2.pressed )  # motor still spins while code waits
-    robot.stop()                        # stops the motor no matter what
-    make.wait_until( button2.pressed )  # stays stopped while the bot's waiting
-    # loops back to the `while True`
+    pulses.pause()
+    length = len(pulses)
+    debug.spin(length, 1)
+    pulses.resume()
+    make.wait(1)
