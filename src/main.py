@@ -1,22 +1,25 @@
 import lib.make as make
-import board
-import pulseio
 
-motor = make.largemotor(6)
-debug = make.largemotor(7)
-button = make.button(8)
-pulses = pulseio.PulseIn(board.GP27, maxlen=200, idle_state=True)
-
-pulses.pause()
-if len(pulses) == 0:
-    motor.spin(100, 3)
-pulses.resume()
-
-make.wait()
+left = make.smallmotor(1)
+right = make.smallmotor(2)
+train = make.drivetrain(left, right)
 
 while True:
-    pulses.pause()
-    length = len(pulses)
-    debug.spin(length, 1)
-    pulses.resume()
-    make.wait(1)
+    train.drive(100, 1)
+    train.turn(100, 1)
+    train.curve(100, 50, 1)
+    make.wait()
+
+# import board
+# import digitalio
+# import time
+# import pwmio
+# # from adafruit_motor import servo, motor
+# import adafruit_motor
+
+# digout = digitalio.DigitalInOut(board.GP25)
+# digout.direction = digitalio.Direction.OUTPUT
+
+# while True:
+#     digout.value ^= True
+#     time.sleep(1)

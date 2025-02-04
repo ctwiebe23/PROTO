@@ -45,3 +45,10 @@ MAKERPI_RP2040: board_schema = board_schema(
         15: port( board.GP0,    board.GP1   ),
     },
 )
+
+PI_PICO: board_schema = board_schema(
+    ports={
+        1:  port( board.GP0,    None        ),
+        2:  port( board.GP1,    None        ),
+    },
+)
