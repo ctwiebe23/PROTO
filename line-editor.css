@@ -1,0 +1,68 @@
+.code-editor-container {
+  position: relative;
+  /* Allow it to expand and the page to scroll */
+  overflow: visible;
+
+  /* Align with the block editor's width */
+  width: 80vw;
+  /* Maximum width similar to block editor */
+  max-width: 2048px;
+  /* Minimum width similar to block editor */
+  min-width: 512px;
+  /* Minimum height for initial size */
+  min-height: 80vh;
+
+  background-color: var(--bg-2);
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12pt;
+  line-height: 1.5;
+
+  padding: 8px;
+  /* Center the editor horizontally */
+  margin: 0 auto;
+  margin-bottom: 128;
+}
+
+.highlight-keyword {
+  /* Highlight the keywords in red */
+  color: var(--red);
+  font-weight: bold;
+}
+
+.code-input {
+  background: transparent;
+  outline: none;
+  border: none;
+
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+
+  color: var(--fg-1);
+  caret-color: var(--fg-1);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12pt;
+  line-height: 1.5;
+
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  position: relative;
+  z-index: 1;
+}
+
+div#suggestion-box {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+
+  font-family: 'Courier New', Courier, monospace;
+
+  background-color: var(--bg-2);
+  border: 1px solid var(--fg-2);
+
+  padding: 4px;
+  max-width: 256px;
+}
