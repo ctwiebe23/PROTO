@@ -1,14 +1,14 @@
-import lib.make as make
+#import lib.make as make
 
-left = make.smallmotor(1)
-right = make.smallmotor(2)
-train = make.drivetrain(left, right)
+#left = make.smallmotor(1)
+#right = make.smallmotor(2)
+#train = make.drivetrain(left, right)
 
-while True:
-    train.drive(100, 1)
-    train.turn(100, 1)
-    train.curve(100, 50, 1)
-    make.wait()
+#while True:
+ #   train.drive(100, 1)
+  #  train.turn(100, 1)
+   # train.curve(100, 50, 1)
+    #make.wait()
 
 # import board
 # import digitalio
@@ -23,3 +23,14 @@ while True:
 # while True:
 #     digout.value ^= True
 #     time.sleep(1)
+
+import make
+
+foo = make.smallmotor(1)
+bar = make.smallmotor(2)
+baz = make.drivetrain(foo, bar)
+
+baz.drive(100)
+
+while True:
+    pass

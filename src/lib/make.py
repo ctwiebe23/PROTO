@@ -8,8 +8,6 @@ from proto.motion.drivetrain    import drivetrain
 from proto.input.button         import button
 
 # start-up script
-# with button( 8 ) as start_button:
-#     wait_until( start_button.pressed )
-#     wait( 1 )
-
-wait(1)
+with button( 8 ) as start_button:
+    wait_until( start_button.pressed )
+    wait( 1 )
