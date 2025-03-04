@@ -21,5 +21,5 @@ class cservo_schema:
 
 FS90R: cservo_schema = cservo_schema(
     frequency=50,
-    power_scaler=lambda power : 0.8 if power > 0 else -1,
+    power_scaler=lambda power : 0 if power == 0 else 0.8 if power > 0 else -1,
 )

@@ -1,21 +1,33 @@
 import lib.make as make
 
-# naming components
-left    = make.largemotor(6)
-right   = make.largemotor(7)
-bot     = make.drivetrain(left, right, drift=10/8)
+base   = make.largemotor(6)
+joint1 = make.largemotor(7)
+joint2 = make.smallmotor(4)
+joint3 = make.servo(5)
 
-start   = make.button(8)
-stop    = make.button(9)
+start = make.button(8)
 
-arm     = make.servo(2)
+def main():
+    base.spin(0.25)
+    joint1.spin(100)
+    make.wait(2)
+    base.spin(-0.25)
+    joint1.spin(-100)
+    make.wait(2)
+    base.stop()
+    joint1.stop()
 
-# taking actions
-for angle in range(180, 0, -30):
-    arm.moveto(angle)
-    make.wait(0.5)
+    joint2.spin(100)
 
-bot.turn(100)
+    for angle in range(90, 180, 5):
+        joint3.moveto(angle)
+        make.wait(0.3)
 
-while not stop.pressed():
-    pass
+    joint2.stop()
+
+main()
+
+while True:
+    if start.pressed():
+        main()
+    make.wait()
