@@ -1,33 +1,20 @@
 import lib.make as make
 
-base   = make.largemotor(6)
-joint1 = make.largemotor(7)
-joint2 = make.smallmotor(4)
-joint3 = make.servo(5)
+# naming 
 
-start = make.button(8)
+left_motor = make.largemotor(7)
+right_motor = make.largemotor(6)
 
-def main():
-    base.spin(0.25)
-    joint1.spin(100)
-    make.wait(2)
-    base.spin(-0.25)
-    joint1.spin(-100)
-    make.wait(2)
-    base.stop()
-    joint1.stop()
+# actions
 
-    joint2.spin(100)
+left_motor.spin(100)
+right_motor.spin(100)
 
-    for angle in range(90, 180, 5):
-        joint3.moveto(angle)
-        make.wait(0.3)
+make.wait(2)
+left_motor.spin(0)
+right_motor.spin(0)
 
-    joint2.stop()
+# learn2code-proto.github.io/new
 
-main()
-
-while True:
-    if start.pressed():
-        main()
-    make.wait()
+# coin pick-up
+# minefield
