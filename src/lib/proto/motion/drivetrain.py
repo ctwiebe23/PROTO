@@ -20,14 +20,13 @@ class drivetrain:
         self,
         left_motor:     smallmotor | largemotor,
         right_motor:    smallmotor | largemotor,
-        direction:      int     = 1,
         drift:          float   = 1,
     ):
         self.__left_motor   = left_motor
         self.__right_motor  = right_motor
-        (self.__left_mod,self.__right_mod)  = calc_mods(
-            sig_int( direction ),
-            drift,
+        (self.__left_mod, self.__right_mod) = calc_mods(
+            sig_int( drift ),
+            abs( drift ),
         )
 
     def curve(

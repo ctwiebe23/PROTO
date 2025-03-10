@@ -14,7 +14,7 @@ make.wait(2)
 left_motor.spin(0)
 right_motor.spin(0)
 
-# learn2code-proto.github.io/new
+# learn2code-proto.github.io
 
 # coin pick-up
 # minefield
