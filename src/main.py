@@ -1,20 +1,51 @@
-import lib.make as make
+from lib.make import *
 
-# naming 
+arm = smallmotor(1)
+hand = servo(2)
 
-left_motor = make.largemotor(7)
-right_motor = make.largemotor(6)
+left = largemotor(6)
+right = largemotor(7)
 
-# actions
+start_button = button(8)
+stop_button = button(9)
 
-left_motor.spin(100)
-right_motor.spin(100)
+bot = drivetrain(left, right, 1/1)
 
-make.wait(2)
-left_motor.spin(0)
-right_motor.spin(0)
+arm.spin(100)
+wait_until(stop_button.pressed)
+arm.stop()
+wait(1)
+arm.spin(-100, 2)
 
-# learn2code-proto.github.io
+hand.moveto(0)
+wait(2)
+hand.moveto(90)
+wait(2)
+hand.moveto(180)
 
-# coin pick-up
-# minefield
+wait(2)
+
+hand.moveto(0, 2)
+hand.moveto(90, 2)
+hand.moveto(180, 2)
+
+wait_until(start_button.pressed)
+
+bot.turn(100)
+wait(1)
+bot.turn(-100, 1)
+bot.stop()
+
+wait(1)
+
+bot.drive(100, 2)
+bot.curve(60, -20, 4)
+bot.curve(40, 60, 2)
+
+wait_until(start_button.pressed)
+bot.drive(100)
+wait_until(stop_button.pressed)
+
+# activity ideas:
+#   coin pick-up
+#   minefield
