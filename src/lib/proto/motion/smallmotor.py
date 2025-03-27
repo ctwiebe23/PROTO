@@ -26,6 +26,13 @@ class smallmotor:
         if seconds != None:
             wait( seconds )
             self.stop()
+            
+    def spin_back( self, power: float, seconds: float = None ) -> None:
+        """
+        Spin the small motor backwards at the given power for the given time
+        period; if no period is given then it spins until stopped.
+        """
+        self.spin( -power, seconds )
 
     def stop( self ) -> None:
         "Stops the small motor."

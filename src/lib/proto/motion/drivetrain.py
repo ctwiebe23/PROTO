@@ -59,6 +59,32 @@ class drivetrain:
         after that time has elapsed.
         """
         self.curve( power, -power, seconds )
+        
+    def curve_back(
+        self,
+        left_power:     float,
+        right_power:    float,
+        seconds:        float = None,
+    ) -> None:
+        """
+        Spins both motors at different powers. If a time is given, stops after
+        the time has elapsed.
+        """
+        self.curve( -left_power, -right_power, seconds )
+
+    def drive_back( self, power: float, seconds: float = None ) -> None:
+        """
+        Spins both motors back at the same power. If a time is given, stops
+        after the time has elapsed.
+        """
+        self.drive( -power, seconds )
+        
+    def turn_back( self, power: float, seconds: float = None ) -> None:
+        """
+        Rotates on the spot at the given power. If a time is given, stops
+        after that time has elapsed.
+        """
+        self.turn( -power, seconds )
 
     def stop( self ) -> None:
         "Stops both motors."
