@@ -1,12 +1,13 @@
 import pwmio
-from adafruit_motor             import servo as adafruit_servo
+from adafruit_motor import servo as adafruit_servo
 from proto.general.system_specs import SYSTEM
-from proto.general.functions    import clamp, wait
+from proto.general.functions import clamp, wait
+
 
 class servo:
     "A servo motor plugged into a small motor port or GROVE port."
-    
-    def __init__( self, port: int ):
+
+    def __init__(self, port: int):
         self.__io = adafruit_servo.Servo(
             pwmio.PWMOut(
                 SYSTEM.board.ports[port].pin1,
@@ -15,9 +16,9 @@ class servo:
             )
         )
 
-    def moveto( self, angle: float, seconds: float = None ) -> None:
+    def moveto(self, angle: float, seconds: float = None) -> None:
         "Rotates the servo to the given angle."
-        self.__io.angle = clamp( 0, angle, 180 )
-        
+        self.__io.angle = clamp(0, angle, 180)
+
         if seconds != None:
-            wait( seconds )
+            wait(seconds)

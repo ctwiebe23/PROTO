@@ -1,8 +1,9 @@
-from proto.general.functions    import sig_int, wait
-from proto.motion.smallmotor    import smallmotor
-from proto.motion.largemotor    import largemotor
+from proto.general.functions import sig_int, wait
+from proto.motion.smallmotor import smallmotor
+from proto.motion.largemotor import largemotor
 
-def calc_mods( direction: int, drift: float ) -> tuple[float, float]:
+
+def calc_mods(direction: int, drift: float) -> tuple[float, float]:
     """
     Calculates the constants that will be applied to the drivetrain's left
     and right motors to modify their power levels, so that they can drive
@@ -11,82 +12,83 @@ def calc_mods( direction: int, drift: float ) -> tuple[float, float]:
     if drift < 1:
         return (drift * direction, direction)
     else:
-        return (direction, ( 1 / drift * direction ))
+        return (direction, (1 / drift * direction))
+
 
 class drivetrain:
     "A drivetrain made from 2 large or small motors."
 
     def __init__(
         self,
-        left_motor:     smallmotor | largemotor,
-        right_motor:    smallmotor | largemotor,
-        drift:          float   = 1,
+        left_motor: smallmotor | largemotor,
+        right_motor: smallmotor | largemotor,
+        drift: float = 1,
     ):
-        self.__left_motor   = left_motor
-        self.__right_motor  = right_motor
+        self.__left_motor = left_motor
+        self.__right_motor = right_motor
         (self.__left_mod, self.__right_mod) = calc_mods(
-            sig_int( drift ),
-            abs( drift ),
+            sig_int(drift),
+            abs(drift),
         )
 
     def curve(
         self,
-        left_power:     float,
-        right_power:    float,
-        seconds:        float = None,
+        left_power: float,
+        right_power: float,
+        seconds: float = None,
     ) -> None:
         """
         Spins both motors at different powers. If a time is given, stops after
         the time has elapsed.
         """
-        self.__left_motor.spin( left_power * self.__left_mod )
-        self.__right_motor.spin( right_power * self.__right_mod )
+        self.__left_motor.spin(left_power * self.__left_mod)
+        self.__right_motor.spin(right_power * self.__right_mod)
 
         if seconds != None:
-            wait( seconds )
+            wait(seconds)
             self.stop()
 
-    def drive( self, power: float, seconds: float = None ) -> None:
+    def drive(self, power: float, seconds: float = None) -> None:
         """
         Spins both motors at the same power. If a time is given, stops after
         the time has elapsed.
         """
-        self.curve( power, power, seconds )
+        self.curve(power, power, seconds)
 
-    def turn( self, power: float, seconds: float = None ) -> None:
+    def turn(self, power: float, seconds: float = None) -> None:
         """
         Rotates on the spot at the given power. If a time is given, stops
         after that time has elapsed.
         """
-        self.curve( power, -power, seconds )
-        
+        self.curve(power, -power, seconds)
+
     def curve_back(
         self,
-        left_power:     float,
-        right_power:    float,
-        seconds:        float = None,
+        left_power: float,
+        right_power: float,
+        seconds: float = None,
     ) -> None:
         """
         Spins both motors at different powers. If a time is given, stops after
         the time has elapsed.
         """
-        self.curve( -left_power, -right_power, seconds )
+        self.curve(-left_power, -right_power, seconds)
 
-    def drive_back( self, power: float, seconds: float = None ) -> None:
+    def drive_back(self, power: float, seconds: float = None) -> None:
         """
         Spins both motors back at the same power. If a time is given, stops
         after the time has elapsed.
         """
-        self.drive( -power, seconds )
-        
-    def turn_back( self, power: float, seconds: float = None ) -> None:
+        self.drive(-power, seconds)
+
+    def turn_back(self, power: float, seconds: float = None) -> None:
         """
         Rotates on the spot at the given power. If a time is given, stops
         after that time has elapsed.
         """
-        self.turn( -power, seconds )
+        self.turn(-power, seconds)
 
-    def stop( self ) -> None:
+    def stop(self) -> None:
         "Stops both motors."
         self.__left_motor.stop()
         self.__right_motor.stop()

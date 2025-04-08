@@ -1,0 +1,13 @@
+metadata:
+  documentclass: scrartcl
+  numbersections: true
+  indent: false
+  colorlinks: false
+  toc: true
+  fontsize: 10pt
+  linestretch: 1.3
+  fontfamily: palatino
+  margin-left: 1.5in
+  margin-right: 1.5in
+  margin-top: 0.8in
+  margin-bottom: 1in
