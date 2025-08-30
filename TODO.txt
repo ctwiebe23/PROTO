@@ -1,1 +1,3 @@
 update ports on brains to partition dc and universal pins
+redo README and doc folder
+clean data folder
