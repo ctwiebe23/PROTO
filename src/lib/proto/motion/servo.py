@@ -1,18 +1,20 @@
 import pwmio
 from adafruit_motor import servo as adafruit_servo
-from proto.general.system_specs import SYSTEM
+import proto.system as system
+from proto.schemata.servo_schema import servo_schema
 from proto.general.functions import clamp, wait
 
 
 class servo:
     "A servo motor plugged into a small motor port or GROVE port."
 
-    def __init__(self, port: int):
+    def __init__(self, port: int, schema: servo_schema = system.servo):
+        self.__schema = schema
         self.__io = adafruit_servo.Servo(
             pwmio.PWMOut(
-                SYSTEM.board.ports[port].pin1,
-                duty_cycle=SYSTEM.servo.duty_cycle,
-                frequency=SYSTEM.servo.frequency,
+                system.board[port].pin1,
+                duty_cycle=self.__schema.duty_cycle,
+                frequency=self.__schema.frequency,
             )
         )
 

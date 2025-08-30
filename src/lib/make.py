@@ -1,4 +1,6 @@
 # exports
+import proto.system as system
+
 from proto.general.functions import wait, wait_until, wait_while
 
 from proto.motion.smallmotor import smallmotor

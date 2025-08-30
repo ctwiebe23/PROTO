@@ -1,12 +1,12 @@
 import digitalio
-from proto.general.system_specs import SYSTEM
+import proto.system as system
 
 
 class button:
     "A button, either built into the board or plugged into a GROVE port."
 
     def __init__(self, port: int):
-        self.__pin = SYSTEM.board.ports[port].pin1
+        self.__pin = system.board[port].pin1
         self.__io = digitalio.DigitalInOut(self.__pin)
         self.__io.direction = digitalio.Direction.INPUT
         self.__io.pull = digitalio.Pull.UP

@@ -1,12 +1,11 @@
 from lib.make import *
 
-drive_motor = largemotor(7, -1)
-start_button = button(8)
-stop_button = button(9)
+left = largemotor(6)
+right = largemotor(7, direction=-1)
+bot = drivetrain(left, right)
 
-drive_motor.spin(50, 2)
+stop = button(9)
 
-while not stop_button.pressed():
-    if start_button.pressed():
-        drive_motor.spin(50, 2)
-    wait()
+bot.drive(100)
+wait_until(stop.pressed)
+bot.stop()
