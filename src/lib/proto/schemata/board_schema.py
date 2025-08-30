@@ -23,7 +23,7 @@ class board_schema:
 
     def __init__(self, ports: dict[int, port]):
         self.ports = ports
-        
+
     def __getitem__(self, index):
         return self.ports[index]
 

@@ -8,7 +8,9 @@ from proto.general.functions import wait, sig_int
 class largemotor:
     "A large motor plugged in to a large motor port."
 
-    def __init__(self, port: int, direction: int = 1, schema: dc_schema = system.dc):
+    def __init__(
+        self, port: int, direction: int = 1, schema: dc_schema = system.dc
+    ):
         self.__schema = schema
         forward = pwmio.PWMOut(
             system.board[port].pin1, frequency=self.__schema.frequency
@@ -24,7 +26,9 @@ class largemotor:
         Spin the large motor at the given power for the given time period; if
         no period is given then it spins until stopped.
         """
-        self.__io.throttle = self.__direction * self.__schema.power_scaler(power)
+        self.__io.throttle = self.__direction * self.__schema.power_scaler(
+            power
+        )
 
         if seconds != None:
             wait(seconds)

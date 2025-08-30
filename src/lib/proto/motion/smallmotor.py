@@ -8,7 +8,12 @@ from proto.general.functions import wait, sig_int
 class smallmotor:
     "A small motor plugged into a small motor port or GROVE port."
 
-    def __init__(self, port: int, direction: int = 1, schema: cservo_schema = system.cservo):
+    def __init__(
+        self,
+        port: int,
+        direction: int = 1,
+        schema: cservo_schema = system.cservo,
+    ):
         self.__schema = schema
         self.__io = servo.ContinuousServo(
             pwmio.PWMOut(
