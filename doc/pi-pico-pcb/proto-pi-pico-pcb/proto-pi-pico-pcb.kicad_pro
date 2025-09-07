@@ -416,8 +416,8 @@
       ""
     ],
     [
-      "d50c8fcf-327e-4db1-b678-e284e7866268",
-      "Motor_Driver_1"
+      "de556497-8ac1-4ec5-9749-949cd94ca3d4",
+      "Drivetrain_Port_1"
     ],
     [
       "a12cd174-871a-4c09-a970-b8ba2da2cd84",
@@ -428,20 +428,52 @@
       "User_Button_0"
     ],
     [
-      "bddbd258-3c0f-4c98-a92b-ced516e226f5",
-      "User_Button_1"
+      "db9036d0-7e68-4ff1-826b-791615fd7660",
+      "Drivetrain_Port_3"
     ],
     [
-      "e3cdc6b6-c000-4a3f-ba0a-4b260452c240",
-      "User_Button_2"
+      "6819b060-f6a6-4e34-84cf-667f33e83663",
+      "Motor_Driver_1"
     ],
     [
-      "f14f3236-86f5-469a-8939-da1c7f447642",
-      "User_Button_3"
+      "55826280-d6d2-4898-9d19-e6fb3e7360e5",
+      "Drivetrain_Port_2"
     ],
     [
       "0a9df5b0-c604-4fd1-afa9-9345f73695dc",
       "RESET_Button_0"
+    ],
+    [
+      "c0e07778-a217-4373-a13d-7a151ae621cd",
+      "Normal_Port_0"
+    ],
+    [
+      "7162a720-7798-4cec-9c36-cad59257dd41",
+      "Normal_Port_1"
+    ],
+    [
+      "bdf5c5e5-3e64-4634-8133-28ac25b38898",
+      "Normal_Port_2"
+    ],
+    [
+      "69a231a8-6c7b-4175-869d-4c03fa15b9be",
+      "Normal_Port_3"
+    ],
+    [
+      "e6c44bd9-95bb-4524-9f56-bb9752df3093",
+      "Drivetrain_Port_0"
+    ],
+    [
+      "0ed744b9-f220-4f16-8538-e4c149ac2e10",
+      "User_Button_1"
+    ],
+    [
+      "e4f56ca3-7f48-4e3d-a89f-9f851203ad81",
+      "User_Button_2"
+    ],
+    [
+      "23d4546f-e3ea-45ea-892e-4ca03c659b12",
+      "User_Button_3"
     ]
   ],
   "text_variables": {}
