@@ -432,7 +432,7 @@
       "Drivetrain_Port_3"
     ],
     [
-      "6819b060-f6a6-4e34-84cf-667f33e83663",
+      "1d22e75f-9174-4ceb-bd6d-481f70282d7f",
       "Motor_Driver_1"
     ],
     [
@@ -474,6 +474,10 @@
     [
       "23d4546f-e3ea-45ea-892e-4ca03c659b12",
       "User_Button_3"
+    ],
+    [
+      "953255e4-35c7-4690-9a7e-3362045215ce",
+      "Flash_Memory_0"
     ]
   ],
   "text_variables": {}

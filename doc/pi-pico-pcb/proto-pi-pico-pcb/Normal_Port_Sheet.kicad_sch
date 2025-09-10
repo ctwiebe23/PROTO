@@ -4,6 +4,13 @@
 
   (paper "A4")
 
+  (title_block
+    (date "2025-09-09")
+    (rev "1")
+    (company "PROTO")
+    (comment 1 "Author: Carston Wiebe")
+  )
+
   (lib_symbols
     (symbol "Connector:6P6C" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at -5.08 11.43 0)

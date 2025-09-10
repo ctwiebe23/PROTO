@@ -4,6 +4,13 @@
 
   (paper "A4")
 
+  (title_block
+    (date "2025-09-09")
+    (rev "1")
+    (company "PROTO")
+    (comment 1 "Author: Carston Wiebe")
+  )
+
   (lib_symbols
     (symbol "Connector:6P6C" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at -5.08 11.43 0)
@@ -229,19 +236,19 @@
   )
 
 
-  (hierarchical_label "GP0" (shape input) (at 136.525 96.52 180)
+  (hierarchical_label "GP_0" (shape input) (at 136.525 96.52 180)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 033fb248-3537-4642-89f4-be8fcebdb4ad)
   )
-  (hierarchical_label "DC1" (shape input) (at 136.525 104.14 180)
+  (hierarchical_label "DC_1" (shape input) (at 136.525 104.14 180)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 35f5432e-66c4-480b-8a94-113ee8cfb298)
   )
-  (hierarchical_label "GP1" (shape input) (at 136.525 99.06 180)
+  (hierarchical_label "GP_1" (shape input) (at 136.525 99.06 180)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 526d7d2d-43bd-4b1b-ad5e-c8fe5f99c2fa)
   )
-  (hierarchical_label "DC0" (shape input) (at 136.525 101.6 180)
+  (hierarchical_label "DC_0" (shape input) (at 136.525 101.6 180)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid ad07d9d1-dc5b-4c71-8077-bfd6d75811a1)
   )
