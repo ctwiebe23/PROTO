@@ -1,0 +1,9 @@
+embed-resources: true
+toc: true
+include-in-header: doc/fonts.html
+metadata:
+  title: MAKE
+  subtitle: Embedded Python for PROTO
+  author: C Wiebe
+  date: Sep 13 2025
+  css: doc/styles.css

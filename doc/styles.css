@@ -1,0 +1,162 @@
+* {
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+}
+
+:root {
+  --rule:1px;
+  --sm:8px;
+  --md:16px;
+  --lg:32px;
+  --indent:3ch;
+  --font-size:14pt;
+  --tracking:0.15rem;
+  --font-family:"Outfit", sans-serif;
+  --mono-family:"DM Mono", monospace;
+  --fg:light-dark(#292222, #e0e0e8);
+  --bg:light-dark(#fff, #1c1c1f);
+  --fg2:light-dark(#292222, #e0e0e8);
+  --bg2:light-dark(#fde, #444460);
+  --link:light-dark(#c25, #69f);
+  --code-fg:light-dark(#292222, #1c1c1f);
+  --code-bg:light-dark(#e0e0e8, #e0e0e8);
+
+  font:var(--font-size) / 1.5 var(--font-family);
+  hyphens:auto;
+  color:var(--fg);
+  background:var(--bg);
+}
+
+body {
+  max-width:700px;
+  min-height:100vh;
+  padding:var(--md);
+  margin:var(--lg) auto;
+}
+
+h1.title {
+  font-size:2rem;
+  font-weight:normal;
+}
+
+h1:not(.title) {
+  font-size:1.5rem;
+  font-weight:bold;
+  margin-top:var(--lg);
+  letter-spacing:var(--tracking);
+  text-transform:uppercase;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight:bold;
+  letter-spacing:var(--tracking);
+  margin-top:var(--lg);
+  text-transform:uppercase;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight:normal;
+  letter-spacing:var(--tracking);
+  margin-top:var(--md);
+  text-transform:uppercase;
+}
+
+dt {
+  margin-top:var(--md);
+  font-family:var(--mono-family);
+}
+
+dd {
+  margin-left:var(--indent);
+  margin-bottom:var(--md);
+}
+
+ol, ul {
+  margin-left:var(--indent);
+}
+
+:is(h1, h2, h3, h4, h6, p, ol, ul, dl, pre) + :is(p, ol, ul, dl, pre) {
+  margin-block:var(--md);
+}
+
+@media (width > 700px) {
+  p {
+    text-align:justify;
+  }
+}
+
+p.subtitle {
+  margin:0;
+}
+
+p.author, p.date {
+  display:inline;
+}
+
+p.author::before {
+  content:'by ';
+}
+
+p.date::before {
+  content:'on ';
+}
+
+hr {
+  margin-block:var(--lg);
+}
+
+code {
+  font-family:var(--mono-family);
+}
+
+pre > code {
+  display:block;
+  color:var(--code-fg);
+  background:var(--code-bg);
+  border-radius:0.5rem;
+  padding:var(--md);
+  margin-block:var(--md);
+  white-space:pre;
+  overflow:auto;
+}
+
+a {
+  color:var(--link);
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration:underline var(--rule) solid currentcolor;
+  position:relative;
+}
+
+a:hover::after {
+  position:absolute;
+  left:0;
+  top:1.3rem;
+  background:var(--bg2);
+  border-radius:0.5rem;
+  color:var(--fg);
+  content:attr(href);
+  padding:4px 8px;
+  white-space:nowrap;
+}
+
+nav#TOC {
+  margin-block:var(--lg);
+}
+
+nav#TOC li::marker {
+  content:'';
+}
+
+nav#TOC a {
+  text-transform:lowercase;
+}
+
+nav#TOC a:hover::after {
+  content:none;
+}
