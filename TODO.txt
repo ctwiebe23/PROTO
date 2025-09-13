@@ -1,2 +1,6 @@
 update ports on brains to partition dc and universal pins
+docstrings on files
 redo README and doc folder (wiki)
+encoder
+sonar
+line follower
