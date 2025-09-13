@@ -13,7 +13,7 @@ alter or introduce behavior.
 
     -   Alternatively, use your own IDE to write code --- anything will do.
 1.  Plug your robot's brain into your computer using the USB port --- it should
-    show up like a flash drive would, with the name `CIRCUITPI`.
+    show up like a flash drive would, with the name `CIRCUITPY`.
 
     -   If it doesn't show up, make sure the brain is powered on!
 1.  Once you've written a program, save it to a file named `main.py` and place

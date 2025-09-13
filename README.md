@@ -99,11 +99,14 @@ doc/
     styles.css
     :   foo
 
-    example_code/
-    :   foo
-
     www/
     :   foo
+
+    tutorial_pages/
+    :   foo
+
+        example_code/
+        :   foo
 
 src/
 :   foo
