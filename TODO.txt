@@ -4,3 +4,4 @@ redo README and doc folder (wiki)
 encoder
 sonar
 line follower
+record servo velocity and make moveto smart

@@ -1,11 +1,14 @@
 import lib.make as make
 
-base_motor = make.servo(1)
-pulley_motor = make.largemotor(7)
+# The base of the crane
+base = make.servo(port=1)
+
+# The pulley
+pulley = make.largemotor(port=7)
 
 # Rotate crane to 80 degrees
-base_motor.moveto(80, 1)
+base.moveto(angle=80, seconds=1)
 
 # Lower pulley and raise it back up
-pulley_motor.spin(100, 2)
-pulley_motor.spin_back(100, 2)
+pulley.spin(power=100, seconds=2)
+pulley.spin_back(power=100, seconds=2)
