@@ -1,14 +1,20 @@
-import lib.make as make
+import sys
+import time
+from machine import Pin
 
-# The base of the crane
-base = make.servo(port=1)
+while True:
+    time.sleep(0.3)
 
-# The pulley
-pulley = make.largemotor(port=7)
+    from_serial = sys.stdin.readline().strip()
+    tokens = from_serial.split(" ")
 
-# Rotate crane to 80 degrees
-base.moveto(angle=80, seconds=1)
+    if len(tokens) == 0:
+        continue
 
-# Lower pulley and raise it back up
-pulley.spin(power=100, seconds=2)
-pulley.spin_back(power=100, seconds=2)
+    match tokens[0]:
+        case "STDOUT":
+            sys.stdout.write("foo")
+        case "PRINT":
+            print("bar")
+        case _:
+            pass

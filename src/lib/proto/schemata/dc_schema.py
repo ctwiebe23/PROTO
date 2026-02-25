@@ -8,10 +8,10 @@ class dc_schema:
 
     The power scaler should intake a power in the range [-100,100] and return
     a throttle in the range [-1,1], along with whatever other modifications
-    are necessary.
+    are necessary to make the motor speed scale as expected.
     """
 
-    def __init__(self, frequency: int, power_scaler):
+    def __init__(self, frequency: float, power_scaler):
         self.frequency = frequency
         self.power_scaler = power_scaler
 
@@ -21,6 +21,11 @@ class dc_schema:
 # =============================================================================#
 
 EE_YELLOW: dc_schema = dc_schema(
-    frequency=50,
+    frequency=50,  # experiment with 20e3
     power_scaler=lambda power: bound_power(power, (0.3, 1)),
+)
+
+N20: dc_schema = dc_schema(
+    frequency=50e3,
+    power_scaler=lambda power: bound_power(power, (0, 1)),
 )
