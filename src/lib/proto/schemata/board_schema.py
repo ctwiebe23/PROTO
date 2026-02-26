@@ -21,10 +21,20 @@ class board_schema:
     will always be used, while the second pin is only for components (such as
     DCs) that require two pins be grouped in the same 'port' -- for buttons and
     servos, only the first pin in the set will be used.
+    
+    The start button is the button that needs to be pressed for the user's
+    program to start running.  Its value should be the index of the button's
+    port on the board.
+    
+    The built-in light is an LED on the board that turns on once the user's
+    program is ready to start, and turns off once it has started.  Its value
+    should be the index of the LED's port on the board.
     """
 
-    def __init__(self, ports: dict[int, port]):
+    def __init__(self, ports: dict[int, port], start_button_port: int = None, builtin_light_port: int = None):
         self.ports = ports
+        self.start_button_port = start_button_port
+        self.builtin_light_port = builtin_light_port
 
     def __getitem__(self, index):
         return self.ports[index]
@@ -52,6 +62,8 @@ MAKERPI_RP2040: board_schema = board_schema(
         14: port(board.GP7, board.GP28),
         15: port(board.GP0, board.GP1),
     },
+    start_button_port=8,
+    builtin_light_port=1
 )
 
 PI_PICO: board_schema = board_schema(
@@ -63,7 +75,10 @@ PI_PICO: board_schema = board_schema(
 
 PROTOBOARD_V1: board_schema = board_schema(
     ports={
-        0: port(board.GP0, None),
-        1: port(board.GP1, None),
+        0: port(board.GP0),
+        1: port(board.GP1),
+        # 25: port(board.GP25),
     },
+    start_button_port=25,
+    builtin_light_port=0,
 )
