@@ -26,6 +26,6 @@ EE_YELLOW: dc_schema = dc_schema(
 )
 
 N20: dc_schema = dc_schema(
-    frequency=50e3,
+    frequency=50,
     power_scaler=lambda power: bound_power(power, (0, 1)),
 )

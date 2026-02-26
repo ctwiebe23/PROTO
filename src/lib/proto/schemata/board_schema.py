@@ -77,8 +77,9 @@ PROTOBOARD_V1: board_schema = board_schema(
     ports={
         0: port(board.GP0),
         1: port(board.GP1),
+        2: port(board.GP2, board.GP3),
         # 25: port(board.GP25),
     },
-    start_button_port=25,
+    # start_button_port=25,
     builtin_light_port=0,
 )

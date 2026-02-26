@@ -1,6 +1,6 @@
 import lib.make as make
 
-led = make.light(2)
+led = make.light(0)
 
 while True:
   led.toggle()
