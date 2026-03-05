@@ -5,8 +5,8 @@ from proto.schemata.cservo_schema import cservo_schema
 from proto.general.functions import wait, sig_int
 
 
-class smallmotor:
-    "A small motor plugged into a small motor port or GROVE port."
+class simple_motor:
+    "A continuous servo plugged into a general port."
 
     def __init__(
         self,
@@ -25,7 +25,7 @@ class smallmotor:
 
     def spin(self, power: float, seconds: float = None) -> None:
         """
-        Spin the small motor at the given power for the given time period; if
+        Spin the servo at the given power for the given time period; if
         no period is given then it spins until stopped.
         """
         self.__io.throttle = self.__direction * self.__schema.power_scaler(
@@ -38,11 +38,11 @@ class smallmotor:
 
     def spin_back(self, power: float, seconds: float = None) -> None:
         """
-        Spin the small motor backwards at the given power for the given time
+        Spin the servo backwards at the given power for the given time
         period; if no period is given then it spins until stopped.
         """
         self.spin(-power, seconds)
 
     def stop(self) -> None:
-        "Stops the small motor."
+        "Stops the servo."
         self.spin(0)

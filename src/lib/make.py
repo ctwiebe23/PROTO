@@ -6,8 +6,8 @@ Everything that should be exposed to the user is imported here.
 
 from proto.general.functions import wait, wait_until, wait_while
 
-from proto.motion.smallmotor import smallmotor
-from proto.motion.largemotor import largemotor
+from proto.motion.simple_motor import simple_motor
+from proto.motion.drive_motor import drive_motor
 from proto.motion.drivetrain import drivetrain
 from proto.motion.servo import servo
 

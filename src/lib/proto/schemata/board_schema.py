@@ -51,8 +51,8 @@ MAKERPI_RP2040: board_schema = board_schema(
         3: port(board.GP16, board.GP17),
         4: port(board.GP6, board.GP26),
         5: port(board.GP26, board.GP27),
-        6: port(board.GP8, board.GP9),    # convert to new DC scheme
-        7: port(board.GP10, board.GP11),  # convert to new DC scheme
+        6: port(board.GP8, board.GP9),    # TODO: convert to new DC scheme
+        7: port(board.GP10, board.GP11),  # TODO: convert to new DC scheme
         8: port(board.GP20, None),
         9: port(board.GP21, None),
         10: port(board.GP12, None),
@@ -64,13 +64,6 @@ MAKERPI_RP2040: board_schema = board_schema(
     },
     start_button_port=8,
     builtin_light_port=1
-)
-
-PI_PICO: board_schema = board_schema(
-    ports={
-        1: port(board.GP0, None),
-        2: port(board.GP1, None),
-    },
 )
 
 PROTOBOARD_V1: board_schema = board_schema(
