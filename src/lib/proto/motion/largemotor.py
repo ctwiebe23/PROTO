@@ -1,7 +1,7 @@
 import pwmio
 from adafruit_motor import motor
 import proto.system as system
-from proto.schemata.dc_schema import dc_schema
+from proto.schemata.motor_driver_schema import motor_driver_schema
 from proto.general.functions import wait, sig_int
 
 
@@ -9,7 +9,7 @@ class largemotor:
     "A large motor plugged in to a large motor port."
 
     def __init__(
-        self, port: int, direction: int = 1, schema: dc_schema = system.dc
+        self, port: int, direction: int = 1, schema: motor_driver_schema = system.driver
     ):
         self.__schema = schema
         forward = pwmio.PWMOut(

@@ -16,7 +16,7 @@ from proto.output.light import light
 
 # So the user can alter system components without editing the library itself
 import proto.system as system
-from proto.schemata import board_schema, dc_schema, cservo_schema, servo_schema
+from proto.schemata import board_schema, cservo_schema, servo_schema, motor_driver_schema
 
 # Start-up script
 builtin_light = None
