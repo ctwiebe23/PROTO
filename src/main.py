@@ -1,7 +1,12 @@
 import lib.make as make
 
-led = make.light(0)
+led1 = make.light(8)
+led2 = make.light(9)
+dc = make.drive_motor(4)
+
+led2.on()
+dc.spin(100)
 
 while True:
-  led.toggle()
+  led1.toggle()
   make.wait(0.1)

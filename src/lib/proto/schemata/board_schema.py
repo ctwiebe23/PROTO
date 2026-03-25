@@ -68,11 +68,17 @@ MAKERPI_RP2040: board_schema = board_schema(
 
 PROTOBOARD_V1: board_schema = board_schema(
     ports={
-        0: port(board.GP0),
-        1: port(board.GP1),
-        2: port(board.GP2, board.GP3),
-        # 25: port(board.GP25),
+        4: port(board.GP5, board.GP4),
+        8: port(board.GP0),
+        9: port(board.GP1),
+        10: port(board.GP23),
     },
-    # start_button_port=25,
-    builtin_light_port=0,
+    # start_button_port=10,
+    builtin_light_port=8,
+)
+
+PI_PICO: board_schema = board_schema(
+    ports={
+        25: port(board.GP25),
+    }
 )
