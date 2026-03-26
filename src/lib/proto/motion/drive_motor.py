@@ -13,10 +13,10 @@ class drive_motor:
     ):
         self.__schema = schema
         forward = pwmio.PWMOut(
-            system.board[port].pin1, frequency=self.__schema.frequency
+            system.board[port].dc1, frequency=self.__schema.frequency
         )
         backward = pwmio.PWMOut(
-            system.board[port].pin2, frequency=self.__schema.frequency
+            system.board[port].dc2, frequency=self.__schema.frequency
         )
         self.__io = motor.DCMotor(forward, backward)
         self.__direction = sig_int(direction)
