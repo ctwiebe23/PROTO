@@ -1,14 +1,26 @@
 import lib.make as make
 
-# The base of the crane
-base = make.servo(port=1)
+# define both motors to be safe
+m1 = make.largemotor(port=6)
+m2 = make.largemotor(port=7)
 
-# The pulley
-pulley = make.largemotor(port=7)
+# use the default start button
+button = make.button(port=8)
 
-# Rotate crane to 80 degrees
-base.moveto(angle=80, seconds=1)
+# after initial press
+m1.spin(100)
+m2.spin(100)
+make.wait(3)
+m1.stop()
+m2.stop()
 
-# Lower pulley and raise it back up
-pulley.spin(power=100, seconds=2)
-pulley.spin_back(power=100, seconds=2)
+while True:
+    # subsequent presses
+    make.wait_until(button.pressed)
+    make.wait(1)
+    
+    m1.spin(100)
+    m2.spin(100)
+    make.wait(3)
+    m1.stop()
+    m2.stop()
