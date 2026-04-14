@@ -68,14 +68,14 @@ MAKERPI_RP2040: board_schema = board_schema(
 
 PROTOBOARD_V1: board_schema = board_schema(
     ports={
-        0:  port(board.GP26, board.GP11),
-        1:  port(board.GP28, board.GP12),
-        # 2:  port(board.GP29, board.GP13),  # requires custom uf2 file
-        3:  port(board.GP27, board.GP10),
-        4:  port(board.GP14, board.GP15, board.GP5, board.GP4),
-        5:  port(board.GP16, board.GP17, board.GP3, board.GP2),
-        6:  port(board.GP20, board.GP21, board.GP8, board.GP9),
-        7:  port(board.GP18, board.GP19, board.GP6, board.GP7),
+        7:  port(board.GP26, board.GP11),
+        6:  port(board.GP28, board.GP12),
+        # 5:  port(board.GP29, board.GP13),  # requires custom uf2 file
+        4:  port(board.GP27, board.GP10),
+        3:  port(board.GP14, board.GP15, board.GP5, board.GP4),
+        2:  port(board.GP16, board.GP17, board.GP3, board.GP2),
+        1:  port(board.GP20, board.GP21, board.GP8, board.GP9),
+        0:  port(board.GP18, board.GP19, board.GP6, board.GP7),
         8:  port(board.GP0),
         9:  port(board.GP1),
         10: port(board.GP23),
@@ -83,7 +83,7 @@ PROTOBOARD_V1: board_schema = board_schema(
         12: port(board.GP25),
         13: port(board.GP24),
     },
-    # start_button_port=10,
+    start_button_port=10,
     builtin_light_port=8,
 )
 
