@@ -16,3 +16,8 @@ SMRAZA_S51: servo_schema = servo_schema(
     duty_cycle=2**15,
     frequency=50,
 )
+
+MG90S: servo_schema = servo_schema (
+    duty_cycle=2**15,
+    frequency=50,
+)
