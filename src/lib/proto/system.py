@@ -1,9 +1,9 @@
-from proto.schemata.board_schema import MAKERPI_RP2040
+from proto.schemata.board_schema import MAKERPI_RP2040, PROTOBOARD_V1, PI_PICO
 from proto.schemata.cservo_schema import FS90R
-from proto.schemata.dc_schema import EE_YELLOW
-from proto.schemata.servo_schema import SMRAZA_S51
+from proto.schemata.motor_driver_schema import MX1508, DRV8833
+from proto.schemata.servo_schema import SMRAZA_S51, MG90S
 
-board = MAKERPI_RP2040
+board = PROTOBOARD_V1
 cservo = FS90R
-dc = EE_YELLOW
-servo = SMRAZA_S51
+driver = DRV8833
+servo = MG90S

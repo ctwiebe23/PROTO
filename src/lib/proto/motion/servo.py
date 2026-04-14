@@ -15,7 +15,8 @@ class servo:
                 system.board[port].pin1,
                 duty_cycle=self.__schema.duty_cycle,
                 frequency=self.__schema.frequency,
-            )
+            ),
+            actuation_range=self.__schema.acuation_range,
         )
 
     def moveto(self, angle: float, seconds: float = None) -> None:

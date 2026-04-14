@@ -1,6 +1,6 @@
 from proto.general.functions import sig_int, wait
-from proto.motion.smallmotor import smallmotor
-from proto.motion.largemotor import largemotor
+from proto.motion.simple_motor import simple_motor
+from proto.motion.drive_motor import drive_motor
 
 
 def calc_mods(direction: int, drift: float) -> tuple[float, float]:
@@ -16,12 +16,12 @@ def calc_mods(direction: int, drift: float) -> tuple[float, float]:
 
 
 class drivetrain:
-    "A drivetrain made from 2 large or small motors."
+    "A drivetrain made from 2 DC motors or continous servos."
 
     def __init__(
         self,
-        left_motor: smallmotor | largemotor,
-        right_motor: smallmotor | largemotor,
+        left_motor: simple_motor | drive_motor,
+        right_motor: simple_motor | drive_motor,
         drift: float = 1,
     ):
         self.__left_motor = left_motor

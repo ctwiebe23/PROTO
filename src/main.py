@@ -1,26 +1,12 @@
 import lib.make as make
 
-# define both motors to be safe
-m1 = make.largemotor(port=6)
-m2 = make.largemotor(port=7)
+led1 = make.light(8)
+led2 = make.light(9)
+dc = make.drive_motor(6)
 
-# use the default start button
-button = make.button(port=8)
-
-# after initial press
-m1.spin(100)
-m2.spin(100)
-make.wait(3)
-m1.stop()
-m2.stop()
+led1.on()
+dc.spin(100)
 
 while True:
-    # subsequent presses
-    make.wait_until(button.pressed)
-    make.wait(1)
-    
-    m1.spin(100)
-    m2.spin(100)
-    make.wait(3)
-    m1.stop()
-    m2.stop()
+  led2.toggle()
+  make.wait(0.2)
